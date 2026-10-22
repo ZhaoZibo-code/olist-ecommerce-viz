@@ -1,0 +1,70 @@
+{
+  "report_date": "2026-10-22",
+  "valid_score_min": 1,
+  "valid_score_max": 5,
+  "low_score_max": 2,
+  "delay_bins": [
+    0,
+    3,
+    7,
+    14
+  ],
+  "cohort_min_customers": 50,
+  "cohort_horizon_months": 6,
+  "state_min_delivery_sample": 30,
+  "display_delivery_max_days": 70,
+  "source_url": "https://www.heywhale.com/mw/dataset/6a71d8957e6fb585ffd50d27/file",
+  "upstream_url": "https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce",
+  "team": [
+    {
+      "name": "赵子博",
+      "share": 25,
+      "role": "总体集成 业务问题 结论复核 答辩统筹"
+    },
+    {
+      "name": "杨宇航",
+      "share": 25,
+      "role": "数据接入 字段字典 质量检查 清洗对账"
+    },
+    {
+      "name": "王子豪",
+      "share": 25,
+      "role": "履约分析 评分关联 敏感性验证 自动验收"
+    },
+    {
+      "name": "周书悦",
+      "share": 25,
+      "role": "区域品类 客户队列 报告排版 Web展示"
+    }
+  ],
+  "theme": {
+    "name": "中蓝单色系",
+    "navy": "#28648A",
+    "blue": "#4B84AA",
+    "accent": "#9EC4DA",
+    "mid_blue": "#77A7C6",
+    "light_blue": "#C8E0ED",
+    "pale": "#F0F6FA",
+    "ink": "#1F2E3A",
+    "muted": "#526A7A"
+  },
+  "category_min_orders": 100,
+  "research_design": {
+    "calendar_year": 2017,
+    "comparison_years": [
+      2017,
+      2018
+    ],
+    "comparison_month_end": 8,
+    "sensitivity_cutoffs": [
+      1,
+      2,
+      3
+    ],
+    "sensitivity_years": [
+      2017,
+      2018
+    ],
+    "pareto_target_pct": 80
+  }
+}

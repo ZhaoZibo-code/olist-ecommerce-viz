@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+data/
+*.sqlite
+*.sqlite-*
+*.sql
+*.zip
+reports/.qa/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
