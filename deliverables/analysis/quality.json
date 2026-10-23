@@ -1,0 +1,19 @@
+{
+  "table_rows": {
+    "orders": 99441,
+    "customers": 99441,
+    "order_items": 112650,
+    "products": 32951,
+    "payments": 103886,
+    "reviews": 99224,
+    "sellers": 3095
+  },
+  "unique_orders": 99441,
+  "duplicate_order_ids": 0,
+  "sales_reconciled": true,
+  "missing_item_orders": 775,
+  "orders_without_rating": 768,
+  "valid_deliveries": 96470,
+  "date_start": "2016-09-04 21:15:19",
+  "date_end": "2018-10-17 17:30:18"
+}

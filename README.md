@@ -1,41 +1,50 @@
-# Olist 电商课程项目
+# Olist 巴西电商数据分析与可视化
 
-正式提交只使用 `提交/Olist课程项目提交材料.zip`。按任务书第九部分，包内有七个一级项目：
+基于 Olist 历史交易数据，分析订单分布、区域与品类结构、配送时效、评价和客户回访。项目包含数据质量报告、数据分析报告、22 幅分析图，以及可离线使用的交互展示。
 
-1. 数据质量分析报告.docx
-2. 数据质量分析报告.pdf
-3. 数据分析报告.docx
-4. 数据分析报告.pdf
-5. 分析代码/（含README、依赖、配置、必要字体和复现入口）
-6. 数据说明.md（来源、获取方式和45个字段说明）
-7. 分工与贡献说明.md（四人各25%，真实提交与本人确认由组员补齐）
+样本包含 99,441 笔订单，来自订单、客户、商品明细、产品、卖家、支付和评价七张表。商品金额合计为 BRL 13,591,643.70，不含运费，不代表净收入；研究结论仅适用于本数据集。
 
-报告采用中蓝色 #28648A 与浅蓝阶，中文 Noto Serif CJK SC，英文数字 Times New Roman。质量报告24页、分析报告26页；已核对本机WPS与PDF页数及章起始页。
+## 查看成果
 
-## 本机工作文件
+- [数据质量报告](reports/Olist数据质量分析报告_中蓝版.pdf)
+- [数据分析报告](reports/Olist数据分析报告_中蓝版.pdf)
+- [交互展示](deliverables/olist_visual_report.html)：下载后用浏览器打开，视频、字体和图表资源已内嵌。
+- [交互研究图谱](deliverables/analysis/analysis_report.html)：下载后可离线查看。
 
-- reports/：唯一保留的中蓝版报告、当前图表与汇总证据。
-- analysis/、scripts/、sql/、configs/、assets/：当前分析及报告生成源码和依赖资源。
-- data/ 与 data.zip：本机原始资料和分析数据库，不进入提交包。
-- frontend/、backend/、deliverables/：之前完成的选做展示系统与当前展示输出，留在本机，不混入必交材料。
-- docs/、tests/：内部说明和核验代码，不单独作为提交物发送。
+报告同时提供可编辑的 Word 版本。GitHub 文件预览不执行 HTML，查看交互效果请先下载文件。
 
-## 正式报告复现
+## 运行
 
-取得同批七个SQL文件放入data/raw，安装requirements.txt后运行：
+使用 Python 3.14，在项目根目录执行：
+
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python run.py
+```
+
+浏览器访问 http://127.0.0.1:8780/ 。macOS 也可双击 `启动Web展示.command`。Windows 使用 `.venv\Scripts\python.exe` 替换上面的 Python 路径。
+
+## 复现分析
+
+按[数据说明](docs/数据说明.md)取得七个 SQL 文件并放入 `data/raw/`，然后运行：
 
 ```sh
 .venv/bin/python scripts/reproduce_reports.py
 ```
 
-该入口重算两报告的全部数字与22幅PNG/SVG，原始SQL只读。需要重建Word时安装requirements-documents.txt，并加 `--documents`；PDF重建环境和运行顺序见提交包内分析代码/README.md。
+该命令重算报告数字、汇总证据和 22 幅图。需要重建 Word 时，安装 `requirements-documents.txt` 后添加 `--documents`。PDF 导出方法、指标定义和参数说明见[报告复现说明](docs/报告复现说明.md)。
 
-重新生成精简提交包：
+原始 SQL、数据库和评价正文不随仓库分发。订单查询页面 `/workbench` 需要先运行 `sql/import_to_sqlite.py` 和 `analysis/pipeline.py` 生成本地数据库。
 
-```sh
-.venv/bin/python scripts/pack_course_delivery.py
-```
+## 目录
 
-选做展示仍可用 `启动Web展示.command` 启动。原有 `scripts/reproduce.py --from-raw` 是包含选做展示的完整本机流程。
+- `analysis/`：清洗、关联校验、统计分析和绘图。
+- `scripts/`：报告生成、展示构建、复现和核验。
+- `backend/`、`frontend/`：本地服务与查询页面。
+- `reports/`：正式报告、汇总证据和图表。
+- `deliverables/`：离线展示文件。
+- `tests/`：金额对账、样本口径、报告和接口测试。
+- `configs/`、`assets/`：分析参数、地图、字体和图表资源。
 
-正式提交的Windows与macOS运行命令、数字/Word/PDF三种复现范围、固定研究设计和可调阈值，统一见 docs/报告复现说明.md。脚本打包时将该文档作为分析代码/README.md。
+数据来源、统计限制和辅助工具使用情况见报告及其附录。中文字体随附开源许可。

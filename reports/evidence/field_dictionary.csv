@@ -1,0 +1,46 @@
+﻿table,field,meaning,privacy
+orders,order_id,订单标识，仅本地关联，不对外展示,本地保留 外部排除
+orders,customer_id,订单对应客户标识，不能作为稳定客户身份,本地保留 外部排除
+orders,order_status,订单状态，保留全部状态用于规模描述,允许汇总使用
+orders,order_purchase_timestamp,下单时间，按原始记录解释，不转换时区,允许汇总使用
+orders,order_approved_at,支付批准时间，允许业务性缺失,允许汇总使用
+orders,order_delivered_carrier_date,交承运商时间,允许汇总使用
+orders,order_delivered_customer_date,实际送达时间，配送时长需非空,允许汇总使用
+orders,order_estimated_delivery_date,预计送达日期，延迟按日历日判断,允许汇总使用
+customers,customer_id,订单对应客户标识，不能作为稳定客户身份,本地保留 外部排除
+customers,customer_unique_id,稳定客户标识，用于本地回购队列,本地保留 外部排除
+customers,customer_zip_code_prefix,客户邮编前缀，分析不用,本地保留 外部排除
+customers,customer_city,客户城市，分析不用,本地保留 外部排除
+customers,customer_state,客户州，两位代码,允许汇总使用
+order_items,order_id,订单标识，仅本地关联，不对外展示,本地保留 外部排除
+order_items,order_item_id,订单内商品行序号，与订单标识构成复合键,本地保留 外部排除
+order_items,product_id,商品标识,本地保留 外部排除
+order_items,seller_id,卖家标识,本地保留 外部排除
+order_items,shipping_limit_date,商品行发货期限,允许汇总使用
+order_items,price,商品行金额 BRL，不含运费,允许汇总使用
+order_items,freight_value,商品行运费 BRL,允许汇总使用
+products,product_id,商品标识,本地保留 外部排除
+products,product_category_name,葡语品类，缺失归为未分类,允许汇总使用
+products,product_name_length,产品名称字符数，不用于核心业务指标,允许汇总使用
+products,product_description_length,产品描述字符数，不是描述正文,允许汇总使用
+products,product_photos_qty,商品图片数量 / 张,允许汇总使用
+products,product_weight_g,商品重量 / 克,允许汇总使用
+products,product_length_cm,商品长度 / 厘米,允许汇总使用
+products,product_height_cm,商品高度 / 厘米,允许汇总使用
+products,product_width_cm,商品宽度 / 厘米,允许汇总使用
+payments,order_id,订单标识，仅本地关联，不对外展示,本地保留 外部排除
+payments,payment_sequential,订单内支付序号,允许汇总使用
+payments,payment_type,支付方式,允许汇总使用
+payments,payment_installments,分期期数,允许汇总使用
+payments,payment_value,支付金额 BRL，可能包含运费,允许汇总使用
+reviews,review_id,评价标识，可能跨订单复用，不能单独作唯一键,本地保留 外部排除
+reviews,order_id,订单标识，仅本地关联，不对外展示,本地保留 外部排除
+reviews,review_score,原始星级 1至5，同单先平均,允许汇总使用
+reviews,review_comment_title,评价标题，不用于分析及外部交付,本地保留 外部排除
+reviews,review_comment_message,评价正文，不用于分析及外部交付,本地保留 外部排除
+reviews,review_creation_date,评价创建时间,允许汇总使用
+reviews,review_answer_timestamp,评价回应时间,允许汇总使用
+sellers,seller_id,卖家标识,本地保留 外部排除
+sellers,seller_zip_code_prefix,卖家邮编前缀，分析不用,本地保留 外部排除
+sellers,seller_city,卖家城市，分析不用,本地保留 外部排除
+sellers,seller_state,卖家州，两位代码,允许汇总使用

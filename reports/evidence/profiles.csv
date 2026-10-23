@@ -1,0 +1,46 @@
+﻿table,field,type,missing,missing_pct,distinct,range,meaning
+orders,order_id,str,0,0.0,99441,标识字段，仅记录长度与基数,订单标识，仅本地关联，不对外展示
+orders,customer_id,str,0,0.0,99441,标识字段，仅记录长度与基数,订单对应客户标识，不能作为稳定客户身份
+orders,order_status,str,0,0.0,8,approved / canceled / created / delivered / invoiced / processing / shipped / unavailable,订单状态，保留全部状态用于规模描述
+orders,order_purchase_timestamp,str,0,0.0,98875,文本或日期；不输出原始取值,下单时间，按原始记录解释，不转换时区
+orders,order_approved_at,str,160,0.1608994278014099,90733,文本或日期；不输出原始取值,支付批准时间，允许业务性缺失
+orders,order_delivered_carrier_date,str,1783,1.7930229985619615,81018,文本或日期；不输出原始取值,交承运商时间
+orders,order_delivered_customer_date,str,2965,2.981667521444877,95664,文本或日期；不输出原始取值,实际送达时间，配送时长需非空
+orders,order_estimated_delivery_date,str,0,0.0,459,文本或日期；不输出原始取值,预计送达日期，延迟按日历日判断
+customers,customer_id,str,0,0.0,99441,标识字段，仅记录长度与基数,订单对应客户标识，不能作为稳定客户身份
+customers,customer_unique_id,str,0,0.0,96096,标识字段，仅记录长度与基数,稳定客户标识，用于本地回购队列
+customers,customer_zip_code_prefix,int64,0,0.0,14994,1003 至 99990,客户邮编前缀，分析不用
+customers,customer_city,str,0,0.0,4119,文本或日期；不输出原始取值,客户城市，分析不用
+customers,customer_state,str,0,0.0,27,AC / AL / AM / AP / BA / CE / DF / ES / GO / MA / MG / MS / MT / PA / PB / PE / PI / PR / RJ / RN / RO / RR / RS / SC / SE / SP / TO,客户州，两位代码
+order_items,order_id,str,0,0.0,98666,标识字段，仅记录长度与基数,订单标识，仅本地关联，不对外展示
+order_items,order_item_id,int64,0,0.0,21,标识字段，仅记录长度与基数,订单内商品行序号，与订单标识构成复合键
+order_items,product_id,str,0,0.0,32951,标识字段，仅记录长度与基数,商品标识
+order_items,seller_id,str,0,0.0,3095,标识字段，仅记录长度与基数,卖家标识
+order_items,shipping_limit_date,str,0,0.0,93318,文本或日期；不输出原始取值,商品行发货期限
+order_items,price,float64,0,0.0,5968,0.85 至 6735,商品行金额 BRL，不含运费
+order_items,freight_value,float64,0,0.0,6999,0 至 409.68,商品行运费 BRL
+products,product_id,str,0,0.0,32951,标识字段，仅记录长度与基数,商品标识
+products,product_category_name,str,610,1.8512336499650996,73,文本或日期；不输出原始取值,葡语品类，缺失归为未分类
+products,product_name_length,float64,610,1.8512336499650996,66,5 至 76,产品名称字符数，不用于核心业务指标
+products,product_description_length,float64,610,1.8512336499650996,2960,4 至 3992,产品描述字符数，不是描述正文
+products,product_photos_qty,float64,610,1.8512336499650996,19,1 至 20,商品图片数量 / 张
+products,product_weight_g,float64,2,0.006069618524475737,2204,0 至 40425,商品重量 / 克
+products,product_length_cm,float64,2,0.006069618524475737,99,7 至 105,商品长度 / 厘米
+products,product_height_cm,float64,2,0.006069618524475737,102,2 至 105,商品高度 / 厘米
+products,product_width_cm,float64,2,0.006069618524475737,95,6 至 118,商品宽度 / 厘米
+payments,order_id,str,0,0.0,99440,标识字段，仅记录长度与基数,订单标识，仅本地关联，不对外展示
+payments,payment_sequential,int64,0,0.0,29,1 至 29,订单内支付序号
+payments,payment_type,str,0,0.0,5,boleto / credit_card / debit_card / not_defined / voucher,支付方式
+payments,payment_installments,int64,0,0.0,24,0 至 24,分期期数
+payments,payment_value,float64,0,0.0,29077,0 至 13664.1,支付金额 BRL，可能包含运费
+reviews,review_id,str,0,0.0,98410,标识字段，仅记录长度与基数,评价标识，可能跨订单复用，不能单独作唯一键
+reviews,order_id,str,0,0.0,98673,标识字段，仅记录长度与基数,订单标识，仅本地关联，不对外展示
+reviews,review_score,int64,0,0.0,5,1 至 5,原始星级 1至5，同单先平均
+reviews,review_comment_title,str,87656,88.34153027493349,4523,文本或日期；不输出原始取值,评价标题，不用于分析及外部交付
+reviews,review_comment_message,str,58247,58.70253164556962,36152,文本或日期；不输出原始取值,评价正文，不用于分析及外部交付
+reviews,review_creation_date,str,0,0.0,636,文本或日期；不输出原始取值,评价创建时间
+reviews,review_answer_timestamp,str,0,0.0,98248,文本或日期；不输出原始取值,评价回应时间
+sellers,seller_id,str,0,0.0,3095,标识字段，仅记录长度与基数,卖家标识
+sellers,seller_zip_code_prefix,int64,0,0.0,2246,1001 至 99730,卖家邮编前缀，分析不用
+sellers,seller_city,str,0,0.0,611,文本或日期；不输出原始取值,卖家城市，分析不用
+sellers,seller_state,str,0,0.0,23,AC / AM / BA / CE / DF / ES / GO / MA / MG / MS / MT / PA / PB / PE / PI / PR / RJ / RN / RO / RS / SC / SE / SP,卖家州，两位代码

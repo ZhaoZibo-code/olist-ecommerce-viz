@@ -1,0 +1,3264 @@
+{
+  "config": {
+    "report_date": "2026-10-22",
+    "valid_score_min": 1,
+    "valid_score_max": 5,
+    "low_score_max": 2,
+    "delay_bins": [
+      0,
+      3,
+      7,
+      14
+    ],
+    "cohort_min_customers": 50,
+    "cohort_horizon_months": 6,
+    "state_min_delivery_sample": 30,
+    "display_delivery_max_days": 70,
+    "source_url": "https://www.heywhale.com/mw/dataset/6a71d8957e6fb585ffd50d27/file",
+    "upstream_url": "https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce",
+    "team": [
+      {
+        "name": "赵子博",
+        "share": 25,
+        "role": "总体集成 业务问题 结论复核 答辩统筹"
+      },
+      {
+        "name": "杨宇航",
+        "share": 25,
+        "role": "数据接入 字段字典 质量检查 清洗对账"
+      },
+      {
+        "name": "王子豪",
+        "share": 25,
+        "role": "履约分析 评分关联 敏感性验证 自动验收"
+      },
+      {
+        "name": "周书悦",
+        "share": 25,
+        "role": "区域品类 客户队列 报告排版 Web展示"
+      }
+    ],
+    "theme": {
+      "name": "中蓝单色系",
+      "navy": "#28648A",
+      "blue": "#4B84AA",
+      "accent": "#9EC4DA",
+      "mid_blue": "#77A7C6",
+      "light_blue": "#C8E0ED",
+      "pale": "#F0F6FA",
+      "ink": "#1F2E3A",
+      "muted": "#526A7A"
+    },
+    "category_min_orders": 100,
+    "research_design": {
+      "calendar_year": 2017,
+      "comparison_years": [
+        2017,
+        2018
+      ],
+      "comparison_month_end": 8,
+      "sensitivity_cutoffs": [
+        1,
+        2,
+        3
+      ],
+      "sensitivity_years": [
+        2017,
+        2018
+      ],
+      "pareto_target_pct": 80
+    }
+  },
+  "quality": {
+    "table_rows": {
+      "orders": 99441,
+      "customers": 99441,
+      "order_items": 112650,
+      "products": 32951,
+      "payments": 103886,
+      "reviews": 99224,
+      "sellers": 3095
+    },
+    "unique_orders": 99441,
+    "duplicate_order_ids": 0,
+    "sales_reconciled": true,
+    "missing_item_orders": 775,
+    "orders_without_rating": 768,
+    "valid_deliveries": 96470,
+    "date_start": "2016-09-04 21:15:19",
+    "date_end": "2018-10-17 17:30:18"
+  },
+  "checks": [
+    {
+      "id": "DQ-01",
+      "dimension": "唯一性",
+      "check": "orders复合业务键重复",
+      "affected": 0,
+      "denominator": 99441,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "重复会终止合并；本批无需删除"
+    },
+    {
+      "id": "DQ-02",
+      "dimension": "唯一性",
+      "check": "customers复合业务键重复",
+      "affected": 0,
+      "denominator": 99441,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "重复会终止合并；本批无需删除"
+    },
+    {
+      "id": "DQ-03",
+      "dimension": "唯一性",
+      "check": "order_items复合业务键重复",
+      "affected": 0,
+      "denominator": 112650,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "重复会终止合并；本批无需删除"
+    },
+    {
+      "id": "DQ-04",
+      "dimension": "唯一性",
+      "check": "products复合业务键重复",
+      "affected": 0,
+      "denominator": 32951,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "重复会终止合并；本批无需删除"
+    },
+    {
+      "id": "DQ-05",
+      "dimension": "唯一性",
+      "check": "payments复合业务键重复",
+      "affected": 0,
+      "denominator": 103886,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "重复会终止合并；本批无需删除"
+    },
+    {
+      "id": "DQ-06",
+      "dimension": "唯一性",
+      "check": "reviews复合业务键重复",
+      "affected": 0,
+      "denominator": 99224,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "重复会终止合并；本批无需删除"
+    },
+    {
+      "id": "DQ-07",
+      "dimension": "唯一性",
+      "check": "sellers复合业务键重复",
+      "affected": 0,
+      "denominator": 3095,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "重复会终止合并；本批无需删除"
+    },
+    {
+      "id": "DQ-08",
+      "dimension": "规范性",
+      "check": "order_purchase_timestamp解析失败",
+      "affected": 0,
+      "denominator": 99441,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "无效日期转为空，仅从依赖该字段的指标排除"
+    },
+    {
+      "id": "DQ-09",
+      "dimension": "规范性",
+      "check": "order_estimated_delivery_date解析失败",
+      "affected": 0,
+      "denominator": 99441,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "无效日期转为空，仅从依赖该字段的指标排除"
+    },
+    {
+      "id": "DQ-10",
+      "dimension": "规范性",
+      "check": "order_approved_at解析失败",
+      "affected": 0,
+      "denominator": 99441,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "无效日期转为空，仅从依赖该字段的指标排除"
+    },
+    {
+      "id": "DQ-11",
+      "dimension": "规范性",
+      "check": "order_delivered_carrier_date解析失败",
+      "affected": 0,
+      "denominator": 99441,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "无效日期转为空，仅从依赖该字段的指标排除"
+    },
+    {
+      "id": "DQ-12",
+      "dimension": "规范性",
+      "check": "order_delivered_customer_date解析失败",
+      "affected": 0,
+      "denominator": 99441,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "无效日期转为空，仅从依赖该字段的指标排除"
+    },
+    {
+      "id": "DQ-13",
+      "dimension": "完整性",
+      "check": "订单缺商品明细",
+      "affected": 775,
+      "denominator": 99441,
+      "pct": 0.7793566034130791,
+      "unit": "订单",
+      "status": "注意",
+      "decision": "订单保留；商品金额填0表示本提取无商品金额记录，不解释成免费订单"
+    },
+    {
+      "id": "DQ-14",
+      "dimension": "完整性",
+      "check": "订单缺有效评分",
+      "affected": 768,
+      "denominator": 99441,
+      "pct": 0.7723172534467674,
+      "unit": "订单",
+      "status": "注意",
+      "decision": "订单保留，评分指标按有评分订单计算"
+    },
+    {
+      "id": "DQ-15",
+      "dimension": "完整性",
+      "check": "已送达订单缺实际送达时间",
+      "affected": 8,
+      "denominator": 96478,
+      "pct": 0.008292045855013579,
+      "unit": "订单",
+      "status": "注意",
+      "decision": "仅从配送时长与延迟指标排除"
+    },
+    {
+      "id": "DQ-16",
+      "dimension": "完整性",
+      "check": "产品缺品类",
+      "affected": 610,
+      "denominator": 32951,
+      "pct": 1.8512336499650996,
+      "unit": "行",
+      "status": "注意",
+      "decision": "商品保留，品类填unknown，报告归入未分类"
+    },
+    {
+      "id": "DQ-17",
+      "dimension": "一致性",
+      "check": "orders关联customers失败",
+      "affected": 0,
+      "denominator": 99441,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "关联失败应中止核查，避免静默丢失；本批无需排除"
+    },
+    {
+      "id": "DQ-18",
+      "dimension": "一致性",
+      "check": "order_items关联orders失败",
+      "affected": 0,
+      "denominator": 112650,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "关联失败应中止核查，避免静默丢失；本批无需排除"
+    },
+    {
+      "id": "DQ-19",
+      "dimension": "一致性",
+      "check": "order_items关联products失败",
+      "affected": 0,
+      "denominator": 112650,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "关联失败应中止核查，避免静默丢失；本批无需排除"
+    },
+    {
+      "id": "DQ-20",
+      "dimension": "一致性",
+      "check": "order_items关联sellers失败",
+      "affected": 0,
+      "denominator": 112650,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "关联失败应中止核查，避免静默丢失；本批无需排除"
+    },
+    {
+      "id": "DQ-21",
+      "dimension": "一致性",
+      "check": "payments关联orders失败",
+      "affected": 0,
+      "denominator": 103886,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "关联失败应中止核查，避免静默丢失；本批无需排除"
+    },
+    {
+      "id": "DQ-22",
+      "dimension": "一致性",
+      "check": "reviews关联orders失败",
+      "affected": 0,
+      "denominator": 99224,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "关联失败应中止核查，避免静默丢失；本批无需排除"
+    },
+    {
+      "id": "DQ-23",
+      "dimension": "规范性",
+      "check": "orders标识长度与字符",
+      "affected": 0,
+      "denominator": 99441,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "用于关联，不对外导出标识值"
+    },
+    {
+      "id": "DQ-24",
+      "dimension": "规范性",
+      "check": "customers标识长度与字符",
+      "affected": 0,
+      "denominator": 99441,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "用于关联，不对外导出标识值"
+    },
+    {
+      "id": "DQ-25",
+      "dimension": "规范性",
+      "check": "products标识长度与字符",
+      "affected": 0,
+      "denominator": 32951,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "用于关联，不对外导出标识值"
+    },
+    {
+      "id": "DQ-26",
+      "dimension": "规范性",
+      "check": "sellers标识长度与字符",
+      "affected": 0,
+      "denominator": 3095,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "用于关联，不对外导出标识值"
+    },
+    {
+      "id": "DQ-27",
+      "dimension": "合理性",
+      "check": "评价星级超范围",
+      "affected": 0,
+      "denominator": 99224,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "排除越界评价，保留订单"
+    },
+    {
+      "id": "DQ-28",
+      "dimension": "合理性",
+      "check": "order_items金额为负",
+      "affected": 0,
+      "denominator": 112650,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "负金额应隔离核查，不盲目取绝对值"
+    },
+    {
+      "id": "DQ-29",
+      "dimension": "合理性",
+      "check": "payments金额为负",
+      "affected": 0,
+      "denominator": 103886,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "负金额应隔离核查，不盲目取绝对值"
+    },
+    {
+      "id": "DQ-30",
+      "dimension": "合理性",
+      "check": "已送达时间早于下单",
+      "affected": 0,
+      "denominator": 96478,
+      "pct": 0.0,
+      "unit": "订单",
+      "status": "通过",
+      "decision": "仅从配送指标排除"
+    },
+    {
+      "id": "DQ-31",
+      "dimension": "一致性",
+      "check": "交承运商晚于客户送达",
+      "affected": 23,
+      "denominator": 96478,
+      "pct": 0.023839631833164038,
+      "unit": "订单",
+      "status": "注意",
+      "decision": "不用承运商时间计算配送时长；保留下单至送达指标并披露"
+    },
+    {
+      "id": "DQ-32",
+      "dimension": "规范性",
+      "check": "customers州代码不在27州映射",
+      "affected": 0,
+      "denominator": 99441,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "异常州代码归未知，禁止猜测地理归属"
+    },
+    {
+      "id": "DQ-33",
+      "dimension": "规范性",
+      "check": "sellers州代码不在27州映射",
+      "affected": 0,
+      "denominator": 3095,
+      "pct": 0.0,
+      "unit": "行",
+      "status": "通过",
+      "decision": "异常州代码归未知，禁止猜测地理归属"
+    }
+  ],
+  "profiles": [
+    {
+      "table": "orders",
+      "field": "order_id",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 99441,
+      "range": "标识字段，仅记录长度与基数",
+      "meaning": "订单标识，仅本地关联，不对外展示"
+    },
+    {
+      "table": "orders",
+      "field": "customer_id",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 99441,
+      "range": "标识字段，仅记录长度与基数",
+      "meaning": "订单对应客户标识，不能作为稳定客户身份"
+    },
+    {
+      "table": "orders",
+      "field": "order_status",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 8,
+      "range": "approved / canceled / created / delivered / invoiced / processing / shipped / unavailable",
+      "meaning": "订单状态，保留全部状态用于规模描述"
+    },
+    {
+      "table": "orders",
+      "field": "order_purchase_timestamp",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 98875,
+      "range": "文本或日期；不输出原始取值",
+      "meaning": "下单时间，按原始记录解释，不转换时区"
+    },
+    {
+      "table": "orders",
+      "field": "order_approved_at",
+      "type": "str",
+      "missing": 160,
+      "missing_pct": 0.1608994278014099,
+      "distinct": 90733,
+      "range": "文本或日期；不输出原始取值",
+      "meaning": "支付批准时间，允许业务性缺失"
+    },
+    {
+      "table": "orders",
+      "field": "order_delivered_carrier_date",
+      "type": "str",
+      "missing": 1783,
+      "missing_pct": 1.7930229985619615,
+      "distinct": 81018,
+      "range": "文本或日期；不输出原始取值",
+      "meaning": "交承运商时间"
+    },
+    {
+      "table": "orders",
+      "field": "order_delivered_customer_date",
+      "type": "str",
+      "missing": 2965,
+      "missing_pct": 2.981667521444877,
+      "distinct": 95664,
+      "range": "文本或日期；不输出原始取值",
+      "meaning": "实际送达时间，配送时长需非空"
+    },
+    {
+      "table": "orders",
+      "field": "order_estimated_delivery_date",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 459,
+      "range": "文本或日期；不输出原始取值",
+      "meaning": "预计送达日期，延迟按日历日判断"
+    },
+    {
+      "table": "customers",
+      "field": "customer_id",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 99441,
+      "range": "标识字段，仅记录长度与基数",
+      "meaning": "订单对应客户标识，不能作为稳定客户身份"
+    },
+    {
+      "table": "customers",
+      "field": "customer_unique_id",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 96096,
+      "range": "标识字段，仅记录长度与基数",
+      "meaning": "稳定客户标识，用于本地回购队列"
+    },
+    {
+      "table": "customers",
+      "field": "customer_zip_code_prefix",
+      "type": "int64",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 14994,
+      "range": "1003 至 99990",
+      "meaning": "客户邮编前缀，分析不用"
+    },
+    {
+      "table": "customers",
+      "field": "customer_city",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 4119,
+      "range": "文本或日期；不输出原始取值",
+      "meaning": "客户城市，分析不用"
+    },
+    {
+      "table": "customers",
+      "field": "customer_state",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 27,
+      "range": "AC / AL / AM / AP / BA / CE / DF / ES / GO / MA / MG / MS / MT / PA / PB / PE / PI / PR / RJ / RN / RO / RR / RS / SC / SE / SP / TO",
+      "meaning": "客户州，两位代码"
+    },
+    {
+      "table": "order_items",
+      "field": "order_id",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 98666,
+      "range": "标识字段，仅记录长度与基数",
+      "meaning": "订单标识，仅本地关联，不对外展示"
+    },
+    {
+      "table": "order_items",
+      "field": "order_item_id",
+      "type": "int64",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 21,
+      "range": "标识字段，仅记录长度与基数",
+      "meaning": "订单内商品行序号，与订单标识构成复合键"
+    },
+    {
+      "table": "order_items",
+      "field": "product_id",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 32951,
+      "range": "标识字段，仅记录长度与基数",
+      "meaning": "商品标识"
+    },
+    {
+      "table": "order_items",
+      "field": "seller_id",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 3095,
+      "range": "标识字段，仅记录长度与基数",
+      "meaning": "卖家标识"
+    },
+    {
+      "table": "order_items",
+      "field": "shipping_limit_date",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 93318,
+      "range": "文本或日期；不输出原始取值",
+      "meaning": "商品行发货期限"
+    },
+    {
+      "table": "order_items",
+      "field": "price",
+      "type": "float64",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 5968,
+      "range": "0.85 至 6735",
+      "meaning": "商品行金额 BRL，不含运费"
+    },
+    {
+      "table": "order_items",
+      "field": "freight_value",
+      "type": "float64",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 6999,
+      "range": "0 至 409.68",
+      "meaning": "商品行运费 BRL"
+    },
+    {
+      "table": "products",
+      "field": "product_id",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 32951,
+      "range": "标识字段，仅记录长度与基数",
+      "meaning": "商品标识"
+    },
+    {
+      "table": "products",
+      "field": "product_category_name",
+      "type": "str",
+      "missing": 610,
+      "missing_pct": 1.8512336499650996,
+      "distinct": 73,
+      "range": "文本或日期；不输出原始取值",
+      "meaning": "葡语品类，缺失归为未分类"
+    },
+    {
+      "table": "products",
+      "field": "product_name_length",
+      "type": "float64",
+      "missing": 610,
+      "missing_pct": 1.8512336499650996,
+      "distinct": 66,
+      "range": "5 至 76",
+      "meaning": "产品名称字符数，不用于核心业务指标"
+    },
+    {
+      "table": "products",
+      "field": "product_description_length",
+      "type": "float64",
+      "missing": 610,
+      "missing_pct": 1.8512336499650996,
+      "distinct": 2960,
+      "range": "4 至 3992",
+      "meaning": "产品描述字符数，不是描述正文"
+    },
+    {
+      "table": "products",
+      "field": "product_photos_qty",
+      "type": "float64",
+      "missing": 610,
+      "missing_pct": 1.8512336499650996,
+      "distinct": 19,
+      "range": "1 至 20",
+      "meaning": "商品图片数量 / 张"
+    },
+    {
+      "table": "products",
+      "field": "product_weight_g",
+      "type": "float64",
+      "missing": 2,
+      "missing_pct": 0.006069618524475737,
+      "distinct": 2204,
+      "range": "0 至 40425",
+      "meaning": "商品重量 / 克"
+    },
+    {
+      "table": "products",
+      "field": "product_length_cm",
+      "type": "float64",
+      "missing": 2,
+      "missing_pct": 0.006069618524475737,
+      "distinct": 99,
+      "range": "7 至 105",
+      "meaning": "商品长度 / 厘米"
+    },
+    {
+      "table": "products",
+      "field": "product_height_cm",
+      "type": "float64",
+      "missing": 2,
+      "missing_pct": 0.006069618524475737,
+      "distinct": 102,
+      "range": "2 至 105",
+      "meaning": "商品高度 / 厘米"
+    },
+    {
+      "table": "products",
+      "field": "product_width_cm",
+      "type": "float64",
+      "missing": 2,
+      "missing_pct": 0.006069618524475737,
+      "distinct": 95,
+      "range": "6 至 118",
+      "meaning": "商品宽度 / 厘米"
+    },
+    {
+      "table": "payments",
+      "field": "order_id",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 99440,
+      "range": "标识字段，仅记录长度与基数",
+      "meaning": "订单标识，仅本地关联，不对外展示"
+    },
+    {
+      "table": "payments",
+      "field": "payment_sequential",
+      "type": "int64",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 29,
+      "range": "1 至 29",
+      "meaning": "订单内支付序号"
+    },
+    {
+      "table": "payments",
+      "field": "payment_type",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 5,
+      "range": "boleto / credit_card / debit_card / not_defined / voucher",
+      "meaning": "支付方式"
+    },
+    {
+      "table": "payments",
+      "field": "payment_installments",
+      "type": "int64",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 24,
+      "range": "0 至 24",
+      "meaning": "分期期数"
+    },
+    {
+      "table": "payments",
+      "field": "payment_value",
+      "type": "float64",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 29077,
+      "range": "0 至 13664.1",
+      "meaning": "支付金额 BRL，可能包含运费"
+    },
+    {
+      "table": "reviews",
+      "field": "review_id",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 98410,
+      "range": "标识字段，仅记录长度与基数",
+      "meaning": "评价标识，可能跨订单复用，不能单独作唯一键"
+    },
+    {
+      "table": "reviews",
+      "field": "order_id",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 98673,
+      "range": "标识字段，仅记录长度与基数",
+      "meaning": "订单标识，仅本地关联，不对外展示"
+    },
+    {
+      "table": "reviews",
+      "field": "review_score",
+      "type": "int64",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 5,
+      "range": "1 至 5",
+      "meaning": "原始星级 1至5，同单先平均"
+    },
+    {
+      "table": "reviews",
+      "field": "review_comment_title",
+      "type": "str",
+      "missing": 87656,
+      "missing_pct": 88.34153027493349,
+      "distinct": 4523,
+      "range": "文本或日期；不输出原始取值",
+      "meaning": "评价标题，不用于分析及外部交付"
+    },
+    {
+      "table": "reviews",
+      "field": "review_comment_message",
+      "type": "str",
+      "missing": 58247,
+      "missing_pct": 58.70253164556962,
+      "distinct": 36152,
+      "range": "文本或日期；不输出原始取值",
+      "meaning": "评价正文，不用于分析及外部交付"
+    },
+    {
+      "table": "reviews",
+      "field": "review_creation_date",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 636,
+      "range": "文本或日期；不输出原始取值",
+      "meaning": "评价创建时间"
+    },
+    {
+      "table": "reviews",
+      "field": "review_answer_timestamp",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 98248,
+      "range": "文本或日期；不输出原始取值",
+      "meaning": "评价回应时间"
+    },
+    {
+      "table": "sellers",
+      "field": "seller_id",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 3095,
+      "range": "标识字段，仅记录长度与基数",
+      "meaning": "卖家标识"
+    },
+    {
+      "table": "sellers",
+      "field": "seller_zip_code_prefix",
+      "type": "int64",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 2246,
+      "range": "1001 至 99730",
+      "meaning": "卖家邮编前缀，分析不用"
+    },
+    {
+      "table": "sellers",
+      "field": "seller_city",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 611,
+      "range": "文本或日期；不输出原始取值",
+      "meaning": "卖家城市，分析不用"
+    },
+    {
+      "table": "sellers",
+      "field": "seller_state",
+      "type": "str",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "distinct": 23,
+      "range": "AC / AM / BA / CE / DF / ES / GO / MA / MG / MS / MT / PA / PB / PE / PI / PR / RJ / RN / RO / RS / SC / SE / SP",
+      "meaning": "卖家州，两位代码"
+    }
+  ],
+  "ledger": [
+    {
+      "stage": "原始订单",
+      "input": 99441,
+      "removed": 0,
+      "output": 99441
+    },
+    {
+      "stage": "订单事实表 左连接与订单内聚合",
+      "input": 99441,
+      "removed": 0,
+      "output": 99441
+    },
+    {
+      "stage": "配送样本 排除未送达状态",
+      "input": 99441,
+      "removed": 2963,
+      "output": 96478
+    },
+    {
+      "stage": "配送样本 排除送达时间缺失或逆序",
+      "input": 96478,
+      "removed": 8,
+      "output": 96470
+    },
+    {
+      "stage": "评分样本 独立于配送分支",
+      "input": 99441,
+      "removed": 768,
+      "output": 98673
+    }
+  ],
+  "extras": {
+    "orders_multi_reviews": 547,
+    "review_extra_rows": 551,
+    "review_id_reused": 814,
+    "orders_multi_payments": 2961,
+    "missing_payment_orders": 1,
+    "item_category_missing_rows": 1603,
+    "carrier_after_delivery": 23,
+    "delivered_missing_date": 8,
+    "products_missing_category": 610,
+    "review_title_missing": 87656,
+    "review_message_missing": 58247,
+    "delivery_tail_over_70": 180,
+    "payment_goods_comparable": 99440,
+    "payment_goods_mismatch": 1075,
+    "payment_goods_diff_total": 165462.34000000003,
+    "payment_total": 16008872.120000001,
+    "freight_total": 2251909.54
+  },
+  "scope": {
+    "start": "2016-09-04 21:15:19",
+    "end": "2018-10-17 17:30:18",
+    "years": [
+      {
+        "year": 2016,
+        "orders": 329,
+        "sales": 49785.92
+      },
+      {
+        "year": 2017,
+        "orders": 45101,
+        "sales": 6155806.98
+      },
+      {
+        "year": 2018,
+        "orders": 54011,
+        "sales": 7386050.8
+      }
+    ],
+    "outside_main_months": 349,
+    "main_month_orders": 99092,
+    "peak_day": "2017-11-24",
+    "peak_day_orders": 1176,
+    "top3_share": 63.36507886827552,
+    "pareto80": 18,
+    "freight_pct": 16.568338529945425
+  },
+  "summary": {
+    "orders": 99441,
+    "sales": 13591643.7,
+    "rating": 4.0867934152875325,
+    "median_days": 10.217476851851853,
+    "late_rate": 0.06773090079817559,
+    "late_orders": 6534,
+    "rated_orders": 98673,
+    "delivery_sample": 96470
+  },
+  "states": [
+    {
+      "customer_state": "SP",
+      "orders": 41746,
+      "sales": 5202955.05,
+      "rating": 4.1741255144,
+      "delivery": 7.2102719907,
+      "delivery_n": 40494,
+      "share": 38.280543287
+    },
+    {
+      "customer_state": "RJ",
+      "orders": 12852,
+      "sales": 1824092.67,
+      "rating": 3.877262815,
+      "delivery": 12.0416435185,
+      "delivery_n": 12350,
+      "share": 13.4206922302
+    },
+    {
+      "customer_state": "MG",
+      "orders": 11635,
+      "sales": 1585308.03,
+      "rating": 4.1357538515,
+      "delivery": 10.3135127315,
+      "delivery_n": 11354,
+      "share": 11.663843351
+    },
+    {
+      "customer_state": "RS",
+      "orders": 5466,
+      "sales": 750304.02,
+      "rating": 4.1336579092,
+      "delivery": 13.1774884259,
+      "delivery_n": 5344,
+      "share": 5.520333203
+    },
+    {
+      "customer_state": "PR",
+      "orders": 5045,
+      "sales": 683083.76,
+      "rating": 4.1811117753,
+      "delivery": 10.4255092593,
+      "delivery_n": 4923,
+      "share": 5.0257627045
+    },
+    {
+      "customer_state": "SC",
+      "orders": 3637,
+      "sales": 520553.34,
+      "rating": 4.0737046273,
+      "delivery": 13.0143518519,
+      "delivery_n": 3546,
+      "share": 3.8299513399
+    },
+    {
+      "customer_state": "BA",
+      "orders": 3380,
+      "sales": 511349.99,
+      "rating": 3.8610778443,
+      "delivery": 16.9139641204,
+      "delivery_n": 3256,
+      "share": 3.7622380434
+    },
+    {
+      "customer_state": "DF",
+      "orders": 2140,
+      "sales": 302603.94,
+      "rating": 4.0669642857,
+      "delivery": 11.3649247685,
+      "delivery_n": 2080,
+      "share": 2.2263969442
+    },
+    {
+      "customer_state": "GO",
+      "orders": 2020,
+      "sales": 294591.95,
+      "rating": 4.043348281,
+      "delivery": 13.9496064815,
+      "delivery_n": 1957,
+      "share": 2.1674490334
+    },
+    {
+      "customer_state": "ES",
+      "orders": 2033,
+      "sales": 275037.31,
+      "rating": 4.0383848455,
+      "delivery": 13.6369560185,
+      "delivery_n": 1995,
+      "share": 2.0235765156
+    },
+    {
+      "customer_state": "PE",
+      "orders": 1652,
+      "sales": 262788.03,
+      "rating": 4.0085626911,
+      "delivery": 15.7027662037,
+      "delivery_n": 1593,
+      "share": 1.9334529053
+    },
+    {
+      "customer_state": "CE",
+      "orders": 1336,
+      "sales": 227254.71,
+      "rating": 3.8544494721,
+      "delivery": 18.2092013889,
+      "delivery_n": 1279,
+      "share": 1.672017859
+    },
+    {
+      "customer_state": "PA",
+      "orders": 975,
+      "sales": 178947.81,
+      "rating": 3.8461538462,
+      "delivery": 21.0783912037,
+      "delivery_n": 946,
+      "share": 1.3166016852
+    },
+    {
+      "customer_state": "MT",
+      "orders": 907,
+      "sales": 156453.53,
+      "rating": 4.1016666667,
+      "delivery": 16.1090509259,
+      "delivery_n": 886,
+      "share": 1.1511008783
+    },
+    {
+      "customer_state": "MA",
+      "orders": 747,
+      "sales": 119648.22,
+      "rating": 3.7580862534,
+      "delivery": 19.1906018519,
+      "delivery_n": 717,
+      "share": 0.8803072141
+    },
+    {
+      "customer_state": "MS",
+      "orders": 715,
+      "sales": 116812.64,
+      "rating": 4.1093969144,
+      "delivery": 13.9437962963,
+      "delivery_n": 701,
+      "share": 0.8594445424
+    },
+    {
+      "customer_state": "PB",
+      "orders": 536,
+      "sales": 115268.08,
+      "rating": 4.0169811321,
+      "delivery": 18.1524421296,
+      "delivery_n": 517,
+      "share": 0.8480805011
+    },
+    {
+      "customer_state": "PI",
+      "orders": 495,
+      "sales": 86914.08,
+      "rating": 3.9183673469,
+      "delivery": 16.2922685185,
+      "delivery_n": 476,
+      "share": 0.6394670278
+    },
+    {
+      "customer_state": "RN",
+      "orders": 485,
+      "sales": 83034.98,
+      "rating": 4.1052083333,
+      "delivery": 16.0602546296,
+      "delivery_n": 474,
+      "share": 0.6109266976
+    },
+    {
+      "customer_state": "AL",
+      "orders": 413,
+      "sales": 80314.81,
+      "rating": 3.7609756098,
+      "delivery": 22.3329166667,
+      "delivery_n": 397,
+      "share": 0.5909131506
+    },
+    {
+      "customer_state": "SE",
+      "orders": 350,
+      "sales": 58920.85,
+      "rating": 3.8080229226,
+      "delivery": 18.0143055556,
+      "delivery_n": 335,
+      "share": 0.433507906
+    },
+    {
+      "customer_state": "TO",
+      "orders": 280,
+      "sales": 49621.74,
+      "rating": 4.0967741935,
+      "delivery": 15.8658854167,
+      "delivery_n": 274,
+      "share": 0.365090059
+    },
+    {
+      "customer_state": "RO",
+      "orders": 253,
+      "sales": 46140.64,
+      "rating": 4.0515873016,
+      "delivery": 17.5823611111,
+      "delivery_n": 243,
+      "share": 0.3394779985
+    },
+    {
+      "customer_state": "AM",
+      "orders": 148,
+      "sales": 22356.84,
+      "rating": 4.2054794521,
+      "delivery": 25.8751388889,
+      "delivery_n": 145,
+      "share": 0.1644895974
+    },
+    {
+      "customer_state": "AC",
+      "orders": 81,
+      "sales": 15982.95,
+      "rating": 4.049382716,
+      "delivery": 18.3565277778,
+      "delivery_n": 80,
+      "share": 0.1175939449
+    },
+    {
+      "customer_state": "AP",
+      "orders": 68,
+      "sales": 13474.3,
+      "rating": 4.1940298507,
+      "delivery": 24.347025463,
+      "delivery_n": 67,
+      "share": 0.0991366482
+    },
+    {
+      "customer_state": "RR",
+      "orders": 46,
+      "sales": 7829.43,
+      "rating": 3.6086956522,
+      "delivery": 25.0073032407,
+      "delivery_n": 41,
+      "share": 0.0576047325
+    }
+  ],
+  "categories": [
+    {
+      "category": "beleza_saude",
+      "sales": 1258681.34,
+      "items": 9670,
+      "name": "美妆健康",
+      "cum_pct": 9.2606999402
+    },
+    {
+      "category": "relogios_presentes",
+      "sales": 1205005.68,
+      "items": 5991,
+      "name": "手表礼品",
+      "cum_pct": 18.1264832597
+    },
+    {
+      "category": "cama_mesa_banho",
+      "sales": 1036988.68,
+      "items": 11115,
+      "name": "床品卫浴",
+      "cum_pct": 25.7560879116
+    },
+    {
+      "category": "esporte_lazer",
+      "sales": 988048.97,
+      "items": 8641,
+      "name": "运动休闲",
+      "cum_pct": 33.0256205142
+    },
+    {
+      "category": "informatica_acessorios",
+      "sales": 911954.32,
+      "items": 7827,
+      "name": "电脑配件",
+      "cum_pct": 39.7352896324
+    },
+    {
+      "category": "moveis_decoracao",
+      "sales": 729762.49,
+      "items": 8334,
+      "name": "家具装饰",
+      "cum_pct": 45.1044893121
+    },
+    {
+      "category": "cool_stuff",
+      "sales": 635290.85,
+      "items": 3796,
+      "name": "创意好物",
+      "cum_pct": 49.7786175045
+    },
+    {
+      "category": "utilidades_domesticas",
+      "sales": 632248.66,
+      "items": 6964,
+      "name": "家居用品",
+      "cum_pct": 54.4303629001
+    },
+    {
+      "category": "automotivo",
+      "sales": 592720.11,
+      "items": 4235,
+      "name": "汽车用品",
+      "cum_pct": 58.7912784971
+    },
+    {
+      "category": "ferramentas_jardim",
+      "sales": 485256.46,
+      "items": 4347,
+      "name": "园艺工具",
+      "cum_pct": 62.361534389
+    },
+    {
+      "category": "brinquedos",
+      "sales": 483946.6,
+      "items": 4117,
+      "name": "玩具",
+      "cum_pct": 65.9221530358
+    },
+    {
+      "category": "bebes",
+      "sales": 411764.89,
+      "items": 3065,
+      "name": "婴幼儿用品",
+      "cum_pct": 68.9516975051
+    },
+    {
+      "category": "perfumaria",
+      "sales": 399124.87,
+      "items": 3419,
+      "name": "香水",
+      "cum_pct": 71.8882435095
+    },
+    {
+      "category": "telefonia",
+      "sales": 323667.53,
+      "items": 4545,
+      "name": "移动通信",
+      "cum_pct": 74.2696150135
+    },
+    {
+      "category": "moveis_escritorio",
+      "sales": 273960.7,
+      "items": 1691,
+      "name": "办公家具",
+      "cum_pct": 76.2852704121
+    },
+    {
+      "category": "papelaria",
+      "sales": 230943.23,
+      "items": 2517,
+      "name": "文具",
+      "cum_pct": 77.9844264164
+    },
+    {
+      "category": "pcs",
+      "sales": 222963.13,
+      "items": 203,
+      "name": "台式电脑",
+      "cum_pct": 79.6248691393
+    },
+    {
+      "category": "pet_shop",
+      "sales": 214315.41,
+      "items": 1947,
+      "name": "宠物用品",
+      "cum_pct": 81.2016865922
+    },
+    {
+      "category": "instrumentos_musicais",
+      "sales": 191498.88,
+      "items": 680,
+      "name": "乐器",
+      "cum_pct": 82.6106322961
+    },
+    {
+      "category": "eletroportateis",
+      "sales": 190648.58,
+      "items": 679,
+      "name": "小家电",
+      "cum_pct": 84.0133219502
+    },
+    {
+      "category": "unknown",
+      "sales": 179535.28,
+      "items": 1603,
+      "name": "未分类",
+      "cum_pct": 85.3342459235
+    },
+    {
+      "category": "eletronicos",
+      "sales": 160246.74,
+      "items": 2767,
+      "name": "电子产品",
+      "cum_pct": 86.5132551996
+    },
+    {
+      "category": "consoles_games",
+      "sales": 157465.22,
+      "items": 1137,
+      "name": "游戏主机",
+      "cum_pct": 87.6717995484
+    },
+    {
+      "category": "fashion_bolsas_e_acessorios",
+      "sales": 152823.54,
+      "items": 2031,
+      "name": "箱包配饰",
+      "cum_pct": 88.7961929137
+    },
+    {
+      "category": "construcao_ferramentas_construcao",
+      "sales": 144677.59,
+      "items": 929,
+      "name": "建筑工具",
+      "cum_pct": 89.8606527627
+    },
+    {
+      "category": "malas_acessorios",
+      "sales": 140429.98,
+      "items": 1092,
+      "name": "旅行箱包",
+      "cum_pct": 90.8938609831
+    },
+    {
+      "category": "eletrodomesticos_2",
+      "sales": 113317.74,
+      "items": 238,
+      "name": "家用电器Ⅱ",
+      "cum_pct": 91.7275919321
+    },
+    {
+      "category": "casa_construcao",
+      "sales": 83088.12,
+      "items": 604,
+      "name": "家装建材",
+      "cum_pct": 92.3389096052
+    },
+    {
+      "category": "eletrodomesticos",
+      "sales": 80171.53,
+      "items": 771,
+      "name": "家用电器",
+      "cum_pct": 92.9287685786
+    },
+    {
+      "category": "agro_industria_e_comercio",
+      "sales": 72530.47,
+      "items": 212,
+      "name": "农业工贸",
+      "cum_pct": 93.4624087446
+    },
+    {
+      "category": "moveis_sala",
+      "sales": 68916.56,
+      "items": 503,
+      "name": "客厅家具",
+      "cum_pct": 93.9694597056
+    },
+    {
+      "category": "telefonia_fixa",
+      "sales": 59583.0,
+      "items": 264,
+      "name": "固定通信",
+      "cum_pct": 94.407839355
+    },
+    {
+      "category": "casa_conforto",
+      "sales": 58572.04,
+      "items": 434,
+      "name": "居家舒适",
+      "cum_pct": 94.8387809048
+    },
+    {
+      "category": "climatizacao",
+      "sales": 55024.96,
+      "items": 297,
+      "name": "空调暖通",
+      "cum_pct": 95.2436249488
+    },
+    {
+      "category": "audio",
+      "sales": 50688.5,
+      "items": 364,
+      "name": "音频设备",
+      "cum_pct": 95.6165636537
+    },
+    {
+      "category": "portateis_casa_forno_e_cafe",
+      "sales": 47445.71,
+      "items": 76,
+      "name": "烤箱咖啡机",
+      "cum_pct": 95.965643655
+    },
+    {
+      "category": "livros_interesse_geral",
+      "sales": 46856.88,
+      "items": 553,
+      "name": "大众图书",
+      "cum_pct": 96.310391362
+    },
+    {
+      "category": "moveis_cozinha_area_de_servico_jantar_e_jardim",
+      "sales": 46328.37,
+      "items": 281,
+      "name": "厨餐园艺家具",
+      "cum_pct": 96.6512505769
+    },
+    {
+      "category": "construcao_ferramentas_iluminacao",
+      "sales": 41080.0,
+      "items": 304,
+      "name": "照明工具",
+      "cum_pct": 96.9534951096
+    },
+    {
+      "category": "construcao_ferramentas_seguranca",
+      "sales": 40544.52,
+      "items": 194,
+      "name": "安全工具",
+      "cum_pct": 97.2517998688
+    },
+    {
+      "category": "industria_comercio_e_negocios",
+      "sales": 39669.61,
+      "items": 268,
+      "name": "工业商贸",
+      "cum_pct": 97.5436675109
+    },
+    {
+      "category": "alimentos",
+      "sales": 29393.41,
+      "items": 510,
+      "name": "食品",
+      "cum_pct": 97.7599284037
+    },
+    {
+      "category": "market_place",
+      "sales": 28378.47,
+      "items": 311,
+      "name": "综合商品",
+      "cum_pct": 97.968721914
+    },
+    {
+      "category": "construcao_ferramentas_jardim",
+      "sales": 25715.89,
+      "items": 238,
+      "name": "园林工具",
+      "cum_pct": 98.1579255936
+    },
+    {
+      "category": "artes",
+      "sales": 24202.64,
+      "items": 209,
+      "name": "艺术",
+      "cum_pct": 98.3359955941
+    },
+    {
+      "category": "fashion_calcados",
+      "sales": 23562.77,
+      "items": 262,
+      "name": "鞋靴",
+      "cum_pct": 98.5093577755
+    },
+    {
+      "category": "bebidas",
+      "sales": 22428.7,
+      "items": 379,
+      "name": "饮品",
+      "cum_pct": 98.6743760801
+    },
+    {
+      "category": "sinalizacao_e_seguranca",
+      "sales": 21509.23,
+      "items": 199,
+      "name": "标识安防",
+      "cum_pct": 98.8326294192
+    },
+    {
+      "category": "moveis_quarto",
+      "sales": 20028.78,
+      "items": 109,
+      "name": "卧室家具",
+      "cum_pct": 98.979990404
+    },
+    {
+      "category": "livros_tecnicos",
+      "sales": 19096.06,
+      "items": 267,
+      "name": "技术图书",
+      "cum_pct": 99.1204889369
+    },
+    {
+      "category": "construcao_ferramentas_ferramentas",
+      "sales": 15903.95,
+      "items": 103,
+      "name": "通用工具",
+      "cum_pct": 99.2375016423
+    },
+    {
+      "category": "alimentos_bebidas",
+      "sales": 15179.48,
+      "items": 278,
+      "name": "食品饮品",
+      "cum_pct": 99.3491840873
+    },
+    {
+      "category": "fashion_roupa_masculina",
+      "sales": 10797.82,
+      "items": 132,
+      "name": "男装",
+      "cum_pct": 99.428628636
+    },
+    {
+      "category": "fashion_underwear_e_moda_praia",
+      "sales": 9541.55,
+      "items": 131,
+      "name": "内衣泳装",
+      "cum_pct": 99.4988302261
+    },
+    {
+      "category": "artigos_de_natal",
+      "sales": 8800.82,
+      "items": 153,
+      "name": "圣诞用品",
+      "cum_pct": 99.5635819235
+    },
+    {
+      "category": "tablets_impressao_imagem",
+      "sales": 7528.41,
+      "items": 83,
+      "name": "平板影像",
+      "cum_pct": 99.6189719129
+    },
+    {
+      "category": "cine_foto",
+      "sales": 6933.46,
+      "items": 72,
+      "name": "摄影器材",
+      "cum_pct": 99.6699845803
+    },
+    {
+      "category": "musica",
+      "sales": 6034.35,
+      "items": 38,
+      "name": "音乐",
+      "cum_pct": 99.7143820802
+    },
+    {
+      "category": "dvds_blu_ray",
+      "sales": 5999.39,
+      "items": 64,
+      "name": "影视光盘",
+      "cum_pct": 99.7585223633
+    },
+    {
+      "category": "livros_importados",
+      "sales": 4639.85,
+      "items": 60,
+      "name": "进口图书",
+      "cum_pct": 99.7926598826
+    },
+    {
+      "category": "artigos_de_festas",
+      "sales": 4485.18,
+      "items": 43,
+      "name": "派对用品",
+      "cum_pct": 99.8256594234
+    },
+    {
+      "category": "moveis_colchao_e_estofado",
+      "sales": 4368.08,
+      "items": 38,
+      "name": "床垫软装",
+      "cum_pct": 99.8577974053
+    },
+    {
+      "category": "portateis_cozinha_e_preparadores_de_alimentos",
+      "sales": 3968.53,
+      "items": 15,
+      "name": "厨房电器",
+      "cum_pct": 99.8869957134
+    },
+    {
+      "category": "fashion_roupa_feminina",
+      "sales": 2803.64,
+      "items": 48,
+      "name": "女装",
+      "cum_pct": 99.9076233877
+    },
+    {
+      "category": "fashion_esporte",
+      "sales": 2119.51,
+      "items": 30,
+      "name": "运动服饰",
+      "cum_pct": 99.9232176017
+    },
+    {
+      "category": "la_cuisine",
+      "sales": 2054.99,
+      "items": 14,
+      "name": "厨艺用品",
+      "cum_pct": 99.9383371122
+    },
+    {
+      "category": "artes_e_artesanato",
+      "sales": 1814.01,
+      "items": 24,
+      "name": "工艺美术",
+      "cum_pct": 99.9516836216
+    },
+    {
+      "category": "fraldas_higiene",
+      "sales": 1567.59,
+      "items": 39,
+      "name": "纸尿裤卫生",
+      "cum_pct": 99.9632171052
+    },
+    {
+      "category": "pc_gamer",
+      "sales": 1545.95,
+      "items": 9,
+      "name": "游戏电脑",
+      "cum_pct": 99.9745913734
+    },
+    {
+      "category": "flores",
+      "sales": 1110.04,
+      "items": 33,
+      "name": "鲜花",
+      "cum_pct": 99.9827584503
+    },
+    {
+      "category": "casa_conforto_2",
+      "sales": 760.27,
+      "items": 30,
+      "name": "居家舒适Ⅱ",
+      "cum_pct": 99.9883521078
+    },
+    {
+      "category": "cds_dvds_musicais",
+      "sales": 730.0,
+      "items": 14,
+      "name": "音乐光盘",
+      "cum_pct": 99.993723055
+    },
+    {
+      "category": "fashion_roupa_infanto_juvenil",
+      "sales": 569.85,
+      "items": 8,
+      "name": "童装",
+      "cum_pct": 99.9979157046
+    },
+    {
+      "category": "seguros_e_servicos",
+      "sales": 283.29,
+      "items": 2,
+      "name": "保险服务",
+      "cum_pct": 100.0
+    }
+  ],
+  "months": [
+    {
+      "month": "2016-09",
+      "orders": 4,
+      "sales": 267.36
+    },
+    {
+      "month": "2016-10",
+      "orders": 324,
+      "sales": 49507.66
+    },
+    {
+      "month": "2016-11",
+      "orders": 0,
+      "sales": 0.0
+    },
+    {
+      "month": "2016-12",
+      "orders": 1,
+      "sales": 10.9
+    },
+    {
+      "month": "2017-01",
+      "orders": 800,
+      "sales": 120312.87
+    },
+    {
+      "month": "2017-02",
+      "orders": 1780,
+      "sales": 247303.02
+    },
+    {
+      "month": "2017-03",
+      "orders": 2682,
+      "sales": 374344.3
+    },
+    {
+      "month": "2017-04",
+      "orders": 2404,
+      "sales": 359927.23
+    },
+    {
+      "month": "2017-05",
+      "orders": 3700,
+      "sales": 506071.14
+    },
+    {
+      "month": "2017-06",
+      "orders": 3245,
+      "sales": 433038.6
+    },
+    {
+      "month": "2017-07",
+      "orders": 4026,
+      "sales": 498031.48
+    },
+    {
+      "month": "2017-08",
+      "orders": 4331,
+      "sales": 573971.68
+    },
+    {
+      "month": "2017-09",
+      "orders": 4285,
+      "sales": 624401.6900000001
+    },
+    {
+      "month": "2017-10",
+      "orders": 4631,
+      "sales": 664219.43
+    },
+    {
+      "month": "2017-11",
+      "orders": 7544,
+      "sales": 1010271.37
+    },
+    {
+      "month": "2017-12",
+      "orders": 5673,
+      "sales": 743914.17
+    },
+    {
+      "month": "2018-01",
+      "orders": 7269,
+      "sales": 950030.36
+    },
+    {
+      "month": "2018-02",
+      "orders": 6728,
+      "sales": 844178.71
+    },
+    {
+      "month": "2018-03",
+      "orders": 7211,
+      "sales": 983213.4400000001
+    },
+    {
+      "month": "2018-04",
+      "orders": 6939,
+      "sales": 996647.75
+    },
+    {
+      "month": "2018-05",
+      "orders": 6873,
+      "sales": 996517.68
+    },
+    {
+      "month": "2018-06",
+      "orders": 6167,
+      "sales": 865124.31
+    },
+    {
+      "month": "2018-07",
+      "orders": 6292,
+      "sales": 895507.22
+    },
+    {
+      "month": "2018-08",
+      "orders": 6512,
+      "sales": 854686.33
+    },
+    {
+      "month": "2018-09",
+      "orders": 16,
+      "sales": 145.0
+    },
+    {
+      "month": "2018-10",
+      "orders": 4,
+      "sales": 0.0
+    }
+  ],
+  "ratings": [
+    {
+      "review_score": 1,
+      "size": 11424
+    },
+    {
+      "review_score": 2,
+      "size": 3151
+    },
+    {
+      "review_score": 3,
+      "size": 8179
+    },
+    {
+      "review_score": 4,
+      "size": 19142
+    },
+    {
+      "review_score": 5,
+      "size": 57328
+    }
+  ],
+  "risk": [
+    {
+      "group": "准时或提前",
+      "n": 89443,
+      "low": 8257,
+      "pct": 9.231577652806816,
+      "lo": 9.04361544797771,
+      "hi": 9.423041735812669
+    },
+    {
+      "group": "延迟1至3天",
+      "n": 1852,
+      "low": 596,
+      "pct": 32.18142548596112,
+      "lo": 30.0924827749385,
+      "hi": 34.34413724694269
+    },
+    {
+      "group": "延迟4至7天",
+      "n": 1748,
+      "low": 1181,
+      "pct": 67.5629290617849,
+      "lo": 65.33185934518997,
+      "hi": 69.71697155367669
+    },
+    {
+      "group": "延迟8至14天",
+      "n": 1446,
+      "low": 1158,
+      "pct": 80.08298755186722,
+      "lo": 77.94594629915389,
+      "hi": 82.06060889970371
+    },
+    {
+      "group": "延迟15天及以上",
+      "n": 1335,
+      "low": 1044,
+      "pct": 78.20224719101124,
+      "lo": 75.90824333778728,
+      "hi": 80.33440702503381
+    }
+  ],
+  "sensitivity": [
+    {
+      "year": "all",
+      "cutoff": 1,
+      "ontime_n": 89443,
+      "late_n": 6381,
+      "ontime_pct": 6.5807273906286685,
+      "late_pct": 53.6906440996709,
+      "gap_pp": 47.10991670904223
+    },
+    {
+      "year": "2017",
+      "cutoff": 1,
+      "ontime_n": 40714,
+      "late_n": 2384,
+      "ontime_pct": 6.398290514319399,
+      "late_pct": 52.600671140939596,
+      "gap_pp": 46.2023806266202
+    },
+    {
+      "year": "2018",
+      "cutoff": 1,
+      "ontime_n": 48468,
+      "late_n": 3994,
+      "ontime_pct": 6.695139060823636,
+      "late_pct": 54.3314972458688,
+      "gap_pp": 47.63635818504517
+    },
+    {
+      "year": "all",
+      "cutoff": 2,
+      "ontime_n": 89443,
+      "late_n": 6381,
+      "ontime_pct": 9.231577652806816,
+      "late_pct": 62.35699733584078,
+      "gap_pp": 53.12541968303397
+    },
+    {
+      "year": "2017",
+      "cutoff": 2,
+      "ontime_n": 40714,
+      "late_n": 2384,
+      "ontime_pct": 9.159011642186963,
+      "late_pct": 61.493288590604024,
+      "gap_pp": 52.33427694841706
+    },
+    {
+      "year": "2018",
+      "cutoff": 2,
+      "ontime_n": 48468,
+      "late_n": 3994,
+      "ontime_pct": 9.255591317982999,
+      "late_pct": 62.8693039559339,
+      "gap_pp": 53.613712637950904
+    },
+    {
+      "year": "all",
+      "cutoff": 3,
+      "ontime_n": 89443,
+      "late_n": 6381,
+      "ontime_pct": 17.33729861476024,
+      "late_pct": 73.24870709920076,
+      "gap_pp": 55.911408484440514
+    },
+    {
+      "year": "2017",
+      "cutoff": 3,
+      "ontime_n": 40714,
+      "late_n": 2384,
+      "ontime_pct": 17.610649899297538,
+      "late_pct": 71.85402684563758,
+      "gap_pp": 54.243376946340035
+    },
+    {
+      "year": "2018",
+      "cutoff": 3,
+      "ontime_n": 48468,
+      "late_n": 3994,
+      "ontime_pct": 17.07105719237435,
+      "late_pct": 74.08612919379068,
+      "gap_pp": 57.01507200141633
+    }
+  ],
+  "cohorts": [
+    {
+      "cohort": "2016-10",
+      "customers": 262,
+      "month": 1,
+      "observed": true,
+      "returning": 0,
+      "pct": 0.0
+    },
+    {
+      "cohort": "2016-10",
+      "customers": 262,
+      "month": 2,
+      "observed": true,
+      "returning": 0,
+      "pct": 0.0
+    },
+    {
+      "cohort": "2016-10",
+      "customers": 262,
+      "month": 3,
+      "observed": true,
+      "returning": 0,
+      "pct": 0.0
+    },
+    {
+      "cohort": "2016-10",
+      "customers": 262,
+      "month": 4,
+      "observed": true,
+      "returning": 0,
+      "pct": 0.0
+    },
+    {
+      "cohort": "2016-10",
+      "customers": 262,
+      "month": 5,
+      "observed": true,
+      "returning": 0,
+      "pct": 0.0
+    },
+    {
+      "cohort": "2016-10",
+      "customers": 262,
+      "month": 6,
+      "observed": true,
+      "returning": 1,
+      "pct": 0.3816793893129771
+    },
+    {
+      "cohort": "2017-01",
+      "customers": 717,
+      "month": 1,
+      "observed": true,
+      "returning": 2,
+      "pct": 0.2789400278940028
+    },
+    {
+      "cohort": "2017-01",
+      "customers": 717,
+      "month": 2,
+      "observed": true,
+      "returning": 2,
+      "pct": 0.2789400278940028
+    },
+    {
+      "cohort": "2017-01",
+      "customers": 717,
+      "month": 3,
+      "observed": true,
+      "returning": 1,
+      "pct": 0.1394700139470014
+    },
+    {
+      "cohort": "2017-01",
+      "customers": 717,
+      "month": 4,
+      "observed": true,
+      "returning": 3,
+      "pct": 0.41841004184100417
+    },
+    {
+      "cohort": "2017-01",
+      "customers": 717,
+      "month": 5,
+      "observed": true,
+      "returning": 1,
+      "pct": 0.1394700139470014
+    },
+    {
+      "cohort": "2017-01",
+      "customers": 717,
+      "month": 6,
+      "observed": true,
+      "returning": 3,
+      "pct": 0.41841004184100417
+    },
+    {
+      "cohort": "2017-02",
+      "customers": 1628,
+      "month": 1,
+      "observed": true,
+      "returning": 3,
+      "pct": 0.18427518427518427
+    },
+    {
+      "cohort": "2017-02",
+      "customers": 1628,
+      "month": 2,
+      "observed": true,
+      "returning": 5,
+      "pct": 0.3071253071253071
+    },
+    {
+      "cohort": "2017-02",
+      "customers": 1628,
+      "month": 3,
+      "observed": true,
+      "returning": 2,
+      "pct": 0.12285012285012285
+    },
+    {
+      "cohort": "2017-02",
+      "customers": 1628,
+      "month": 4,
+      "observed": true,
+      "returning": 7,
+      "pct": 0.42997542997543
+    },
+    {
+      "cohort": "2017-02",
+      "customers": 1628,
+      "month": 5,
+      "observed": true,
+      "returning": 2,
+      "pct": 0.12285012285012285
+    },
+    {
+      "cohort": "2017-02",
+      "customers": 1628,
+      "month": 6,
+      "observed": true,
+      "returning": 4,
+      "pct": 0.2457002457002457
+    },
+    {
+      "cohort": "2017-03",
+      "customers": 2503,
+      "month": 1,
+      "observed": true,
+      "returning": 11,
+      "pct": 0.4394726328405913
+    },
+    {
+      "cohort": "2017-03",
+      "customers": 2503,
+      "month": 2,
+      "observed": true,
+      "returning": 9,
+      "pct": 0.3595685177786656
+    },
+    {
+      "cohort": "2017-03",
+      "customers": 2503,
+      "month": 3,
+      "observed": true,
+      "returning": 10,
+      "pct": 0.3995205753096284
+    },
+    {
+      "cohort": "2017-03",
+      "customers": 2503,
+      "month": 4,
+      "observed": true,
+      "returning": 9,
+      "pct": 0.3595685177786656
+    },
+    {
+      "cohort": "2017-03",
+      "customers": 2503,
+      "month": 5,
+      "observed": true,
+      "returning": 4,
+      "pct": 0.15980823012385137
+    },
+    {
+      "cohort": "2017-03",
+      "customers": 2503,
+      "month": 6,
+      "observed": true,
+      "returning": 4,
+      "pct": 0.15980823012385137
+    },
+    {
+      "cohort": "2017-04",
+      "customers": 2256,
+      "month": 1,
+      "observed": true,
+      "returning": 14,
+      "pct": 0.6205673758865248
+    },
+    {
+      "cohort": "2017-04",
+      "customers": 2256,
+      "month": 2,
+      "observed": true,
+      "returning": 5,
+      "pct": 0.22163120567375885
+    },
+    {
+      "cohort": "2017-04",
+      "customers": 2256,
+      "month": 3,
+      "observed": true,
+      "returning": 4,
+      "pct": 0.1773049645390071
+    },
+    {
+      "cohort": "2017-04",
+      "customers": 2256,
+      "month": 4,
+      "observed": true,
+      "returning": 6,
+      "pct": 0.26595744680851063
+    },
+    {
+      "cohort": "2017-04",
+      "customers": 2256,
+      "month": 5,
+      "observed": true,
+      "returning": 6,
+      "pct": 0.26595744680851063
+    },
+    {
+      "cohort": "2017-04",
+      "customers": 2256,
+      "month": 6,
+      "observed": true,
+      "returning": 8,
+      "pct": 0.3546099290780142
+    },
+    {
+      "cohort": "2017-05",
+      "customers": 3451,
+      "month": 1,
+      "observed": true,
+      "returning": 16,
+      "pct": 0.4636337293538105
+    },
+    {
+      "cohort": "2017-05",
+      "customers": 3451,
+      "month": 2,
+      "observed": true,
+      "returning": 16,
+      "pct": 0.4636337293538105
+    },
+    {
+      "cohort": "2017-05",
+      "customers": 3451,
+      "month": 3,
+      "observed": true,
+      "returning": 10,
+      "pct": 0.28977108084613157
+    },
+    {
+      "cohort": "2017-05",
+      "customers": 3451,
+      "month": 4,
+      "observed": true,
+      "returning": 10,
+      "pct": 0.28977108084613157
+    },
+    {
+      "cohort": "2017-05",
+      "customers": 3451,
+      "month": 5,
+      "observed": true,
+      "returning": 11,
+      "pct": 0.3187481889307447
+    },
+    {
+      "cohort": "2017-05",
+      "customers": 3451,
+      "month": 6,
+      "observed": true,
+      "returning": 14,
+      "pct": 0.4056795131845842
+    },
+    {
+      "cohort": "2017-06",
+      "customers": 3037,
+      "month": 1,
+      "observed": true,
+      "returning": 15,
+      "pct": 0.4939084622983207
+    },
+    {
+      "cohort": "2017-06",
+      "customers": 3037,
+      "month": 2,
+      "observed": true,
+      "returning": 12,
+      "pct": 0.3951267698386566
+    },
+    {
+      "cohort": "2017-06",
+      "customers": 3037,
+      "month": 3,
+      "observed": true,
+      "returning": 13,
+      "pct": 0.4280540006585446
+    },
+    {
+      "cohort": "2017-06",
+      "customers": 3037,
+      "month": 4,
+      "observed": true,
+      "returning": 9,
+      "pct": 0.2963450773789924
+    },
+    {
+      "cohort": "2017-06",
+      "customers": 3037,
+      "month": 5,
+      "observed": true,
+      "returning": 12,
+      "pct": 0.3951267698386566
+    },
+    {
+      "cohort": "2017-06",
+      "customers": 3037,
+      "month": 6,
+      "observed": true,
+      "returning": 11,
+      "pct": 0.3621995390187685
+    },
+    {
+      "cohort": "2017-07",
+      "customers": 3752,
+      "month": 1,
+      "observed": true,
+      "returning": 20,
+      "pct": 0.5330490405117271
+    },
+    {
+      "cohort": "2017-07",
+      "customers": 3752,
+      "month": 2,
+      "observed": true,
+      "returning": 13,
+      "pct": 0.3464818763326226
+    },
+    {
+      "cohort": "2017-07",
+      "customers": 3752,
+      "month": 3,
+      "observed": true,
+      "returning": 9,
+      "pct": 0.23987206823027718
+    },
+    {
+      "cohort": "2017-07",
+      "customers": 3752,
+      "month": 4,
+      "observed": true,
+      "returning": 11,
+      "pct": 0.2931769722814499
+    },
+    {
+      "cohort": "2017-07",
+      "customers": 3752,
+      "month": 5,
+      "observed": true,
+      "returning": 8,
+      "pct": 0.21321961620469082
+    },
+    {
+      "cohort": "2017-07",
+      "customers": 3752,
+      "month": 6,
+      "observed": true,
+      "returning": 12,
+      "pct": 0.31982942430703626
+    },
+    {
+      "cohort": "2017-08",
+      "customers": 4057,
+      "month": 1,
+      "observed": true,
+      "returning": 28,
+      "pct": 0.6901651466600937
+    },
+    {
+      "cohort": "2017-08",
+      "customers": 4057,
+      "month": 2,
+      "observed": true,
+      "returning": 14,
+      "pct": 0.3450825733300468
+    },
+    {
+      "cohort": "2017-08",
+      "customers": 4057,
+      "month": 3,
+      "observed": true,
+      "returning": 11,
+      "pct": 0.27113630761646534
+    },
+    {
+      "cohort": "2017-08",
+      "customers": 4057,
+      "month": 4,
+      "observed": true,
+      "returning": 14,
+      "pct": 0.3450825733300468
+    },
+    {
+      "cohort": "2017-08",
+      "customers": 4057,
+      "month": 5,
+      "observed": true,
+      "returning": 21,
+      "pct": 0.5176238599950702
+    },
+    {
+      "cohort": "2017-08",
+      "customers": 4057,
+      "month": 6,
+      "observed": true,
+      "returning": 12,
+      "pct": 0.2957850628543259
+    },
+    {
+      "cohort": "2017-09",
+      "customers": 4004,
+      "month": 1,
+      "observed": true,
+      "returning": 28,
+      "pct": 0.6993006993006993
+    },
+    {
+      "cohort": "2017-09",
+      "customers": 4004,
+      "month": 2,
+      "observed": true,
+      "returning": 22,
+      "pct": 0.5494505494505495
+    },
+    {
+      "cohort": "2017-09",
+      "customers": 4004,
+      "month": 3,
+      "observed": true,
+      "returning": 11,
+      "pct": 0.27472527472527475
+    },
+    {
+      "cohort": "2017-09",
+      "customers": 4004,
+      "month": 4,
+      "observed": true,
+      "returning": 18,
+      "pct": 0.44955044955044954
+    },
+    {
+      "cohort": "2017-09",
+      "customers": 4004,
+      "month": 5,
+      "observed": true,
+      "returning": 9,
+      "pct": 0.22477522477522477
+    },
+    {
+      "cohort": "2017-09",
+      "customers": 4004,
+      "month": 6,
+      "observed": true,
+      "returning": 9,
+      "pct": 0.22477522477522477
+    },
+    {
+      "cohort": "2017-10",
+      "customers": 4328,
+      "month": 1,
+      "observed": true,
+      "returning": 31,
+      "pct": 0.7162661737523105
+    },
+    {
+      "cohort": "2017-10",
+      "customers": 4328,
+      "month": 2,
+      "observed": true,
+      "returning": 11,
+      "pct": 0.2541589648798521
+    },
+    {
+      "cohort": "2017-10",
+      "customers": 4328,
+      "month": 3,
+      "observed": true,
+      "returning": 4,
+      "pct": 0.09242144177449169
+    },
+    {
+      "cohort": "2017-10",
+      "customers": 4328,
+      "month": 4,
+      "observed": true,
+      "returning": 10,
+      "pct": 0.23105360443622922
+    },
+    {
+      "cohort": "2017-10",
+      "customers": 4328,
+      "month": 5,
+      "observed": true,
+      "returning": 9,
+      "pct": 0.20794824399260628
+    },
+    {
+      "cohort": "2017-10",
+      "customers": 4328,
+      "month": 6,
+      "observed": true,
+      "returning": 9,
+      "pct": 0.20794824399260628
+    },
+    {
+      "cohort": "2017-11",
+      "customers": 7060,
+      "month": 1,
+      "observed": true,
+      "returning": 40,
+      "pct": 0.56657223796034
+    },
+    {
+      "cohort": "2017-11",
+      "customers": 7060,
+      "month": 2,
+      "observed": true,
+      "returning": 26,
+      "pct": 0.36827195467422097
+    },
+    {
+      "cohort": "2017-11",
+      "customers": 7060,
+      "month": 3,
+      "observed": true,
+      "returning": 12,
+      "pct": 0.16997167138810199
+    },
+    {
+      "cohort": "2017-11",
+      "customers": 7060,
+      "month": 4,
+      "observed": true,
+      "returning": 12,
+      "pct": 0.16997167138810199
+    },
+    {
+      "cohort": "2017-11",
+      "customers": 7060,
+      "month": 5,
+      "observed": true,
+      "returning": 13,
+      "pct": 0.18413597733711048
+    },
+    {
+      "cohort": "2017-11",
+      "customers": 7060,
+      "month": 6,
+      "observed": true,
+      "returning": 8,
+      "pct": 0.11331444759206799
+    },
+    {
+      "cohort": "2017-12",
+      "customers": 5338,
+      "month": 1,
+      "observed": true,
+      "returning": 11,
+      "pct": 0.20606968902210565
+    },
+    {
+      "cohort": "2017-12",
+      "customers": 5338,
+      "month": 2,
+      "observed": true,
+      "returning": 15,
+      "pct": 0.28100412139378045
+    },
+    {
+      "cohort": "2017-12",
+      "customers": 5338,
+      "month": 3,
+      "observed": true,
+      "returning": 18,
+      "pct": 0.3372049456725365
+    },
+    {
+      "cohort": "2017-12",
+      "customers": 5338,
+      "month": 4,
+      "observed": true,
+      "returning": 14,
+      "pct": 0.26227051330086176
+    },
+    {
+      "cohort": "2017-12",
+      "customers": 5338,
+      "month": 5,
+      "observed": true,
+      "returning": 11,
+      "pct": 0.20606968902210565
+    },
+    {
+      "cohort": "2017-12",
+      "customers": 5338,
+      "month": 6,
+      "observed": true,
+      "returning": 9,
+      "pct": 0.16860247283626825
+    },
+    {
+      "cohort": "2018-01",
+      "customers": 6842,
+      "month": 1,
+      "observed": true,
+      "returning": 23,
+      "pct": 0.33615901783104357
+    },
+    {
+      "cohort": "2018-01",
+      "customers": 6842,
+      "month": 2,
+      "observed": true,
+      "returning": 25,
+      "pct": 0.3653902367728734
+    },
+    {
+      "cohort": "2018-01",
+      "customers": 6842,
+      "month": 3,
+      "observed": true,
+      "returning": 20,
+      "pct": 0.29231218941829873
+    },
+    {
+      "cohort": "2018-01",
+      "customers": 6842,
+      "month": 4,
+      "observed": true,
+      "returning": 20,
+      "pct": 0.29231218941829873
+    },
+    {
+      "cohort": "2018-01",
+      "customers": 6842,
+      "month": 5,
+      "observed": true,
+      "returning": 11,
+      "pct": 0.1607717041800643
+    },
+    {
+      "cohort": "2018-01",
+      "customers": 6842,
+      "month": 6,
+      "observed": true,
+      "returning": 12,
+      "pct": 0.17538731365097926
+    },
+    {
+      "cohort": "2018-02",
+      "customers": 6288,
+      "month": 1,
+      "observed": true,
+      "returning": 22,
+      "pct": 0.34987277353689566
+    },
+    {
+      "cohort": "2018-02",
+      "customers": 6288,
+      "month": 2,
+      "observed": true,
+      "returning": 25,
+      "pct": 0.3975826972010178
+    },
+    {
+      "cohort": "2018-02",
+      "customers": 6288,
+      "month": 3,
+      "observed": true,
+      "returning": 19,
+      "pct": 0.30216284987277353
+    },
+    {
+      "cohort": "2018-02",
+      "customers": 6288,
+      "month": 4,
+      "observed": true,
+      "returning": 16,
+      "pct": 0.2544529262086514
+    },
+    {
+      "cohort": "2018-02",
+      "customers": 6288,
+      "month": 5,
+      "observed": true,
+      "returning": 14,
+      "pct": 0.22264631043256997
+    },
+    {
+      "cohort": "2018-02",
+      "customers": 6288,
+      "month": 6,
+      "observed": false,
+      "returning": null,
+      "pct": null
+    },
+    {
+      "cohort": "2018-03",
+      "customers": 6774,
+      "month": 1,
+      "observed": true,
+      "returning": 27,
+      "pct": 0.3985828166519043
+    },
+    {
+      "cohort": "2018-03",
+      "customers": 6774,
+      "month": 2,
+      "observed": true,
+      "returning": 20,
+      "pct": 0.29524653085326247
+    },
+    {
+      "cohort": "2018-03",
+      "customers": 6774,
+      "month": 3,
+      "observed": true,
+      "returning": 20,
+      "pct": 0.29524653085326247
+    },
+    {
+      "cohort": "2018-03",
+      "customers": 6774,
+      "month": 4,
+      "observed": true,
+      "returning": 8,
+      "pct": 0.11809861234130499
+    },
+    {
+      "cohort": "2018-03",
+      "customers": 6774,
+      "month": 5,
+      "observed": false,
+      "returning": null,
+      "pct": null
+    },
+    {
+      "cohort": "2018-03",
+      "customers": 6774,
+      "month": 6,
+      "observed": false,
+      "returning": null,
+      "pct": null
+    },
+    {
+      "cohort": "2018-04",
+      "customers": 6582,
+      "month": 1,
+      "observed": true,
+      "returning": 39,
+      "pct": 0.5925250683682771
+    },
+    {
+      "cohort": "2018-04",
+      "customers": 6582,
+      "month": 2,
+      "observed": true,
+      "returning": 20,
+      "pct": 0.3038590094196293
+    },
+    {
+      "cohort": "2018-04",
+      "customers": 6582,
+      "month": 3,
+      "observed": true,
+      "returning": 16,
+      "pct": 0.24308720753570343
+    },
+    {
+      "cohort": "2018-04",
+      "customers": 6582,
+      "month": 4,
+      "observed": false,
+      "returning": null,
+      "pct": null
+    },
+    {
+      "cohort": "2018-04",
+      "customers": 6582,
+      "month": 5,
+      "observed": false,
+      "returning": null,
+      "pct": null
+    },
+    {
+      "cohort": "2018-04",
+      "customers": 6582,
+      "month": 6,
+      "observed": false,
+      "returning": null,
+      "pct": null
+    },
+    {
+      "cohort": "2018-05",
+      "customers": 6506,
+      "month": 1,
+      "observed": true,
+      "returning": 34,
+      "pct": 0.522594528127882
+    },
+    {
+      "cohort": "2018-05",
+      "customers": 6506,
+      "month": 2,
+      "observed": true,
+      "returning": 17,
+      "pct": 0.261297264063941
+    },
+    {
+      "cohort": "2018-05",
+      "customers": 6506,
+      "month": 3,
+      "observed": false,
+      "returning": null,
+      "pct": null
+    },
+    {
+      "cohort": "2018-05",
+      "customers": 6506,
+      "month": 4,
+      "observed": false,
+      "returning": null,
+      "pct": null
+    },
+    {
+      "cohort": "2018-05",
+      "customers": 6506,
+      "month": 5,
+      "observed": false,
+      "returning": null,
+      "pct": null
+    },
+    {
+      "cohort": "2018-05",
+      "customers": 6506,
+      "month": 6,
+      "observed": false,
+      "returning": null,
+      "pct": null
+    },
+    {
+      "cohort": "2018-06",
+      "customers": 5878,
+      "month": 1,
+      "observed": true,
+      "returning": 25,
+      "pct": 0.4253147329023477
+    },
+    {
+      "cohort": "2018-06",
+      "customers": 5878,
+      "month": 2,
+      "observed": false,
+      "returning": null,
+      "pct": null
+    },
+    {
+      "cohort": "2018-06",
+      "customers": 5878,
+      "month": 3,
+      "observed": false,
+      "returning": null,
+      "pct": null
+    },
+    {
+      "cohort": "2018-06",
+      "customers": 5878,
+      "month": 4,
+      "observed": false,
+      "returning": null,
+      "pct": null
+    },
+    {
+      "cohort": "2018-06",
+      "customers": 5878,
+      "month": 5,
+      "observed": false,
+      "returning": null,
+      "pct": null
+    },
+    {
+      "cohort": "2018-06",
+      "customers": 5878,
+      "month": 6,
+      "observed": false,
+      "returning": null,
+      "pct": null
+    }
+  ],
+  "repeat": {
+    "last_complete_month": "2018-07",
+    "cohorts": 19,
+    "customers": 81263,
+    "returning": 389,
+    "pct": 0.47869263994683925
+  },
+  "source_manifest": {
+    "olist_analysis_customers.sql": {
+      "bytes": 9559311,
+      "sha256": "e15d0bd6aacdb5311c613e4e1a925bf232e07114460cca1f251a3a82e940d265"
+    },
+    "olist_analysis_order_items.sql": {
+      "bytes": 16136752,
+      "sha256": "7d179ab76587dca3ae25e39e9081e06fa8f2b2e6df798b59631901888fda267d"
+    },
+    "olist_analysis_orders.sql": {
+      "bytes": 19209283,
+      "sha256": "b8e6342830c6defa3b84e3ca259e148a9236c67fcda67d3ebcb4c669f2a8235d"
+    },
+    "olist_analysis_payments.sql": {
+      "bytes": 6273378,
+      "sha256": "d77335b6c1b93a8c403f622ae23c4ca6207070bb5dee146099086cf30de8cd6c"
+    },
+    "olist_analysis_products.sql": {
+      "bytes": 2546748,
+      "sha256": "77123aaf821b019dfb36a01d883bf9a9ec9e9183750108ec56fad0f382a0c9e0"
+    },
+    "olist_analysis_reviews.sql": {
+      "bytes": 15614276,
+      "sha256": "ab9ede24d93df3e577940861302a9b88b190133e6d39e7aed206e7fe95ab23ca"
+    },
+    "olist_analysis_sellers.sql": {
+      "bytes": 190347,
+      "sha256": "866554d05dbb594c8e1878f11288af3e826f2fdecb000882778043854b509520"
+    }
+  },
+  "field_dictionary": [
+    {
+      "table": "orders",
+      "field": "order_id",
+      "meaning": "订单标识，仅本地关联，不对外展示",
+      "privacy": "本地保留 外部排除"
+    },
+    {
+      "table": "orders",
+      "field": "customer_id",
+      "meaning": "订单对应客户标识，不能作为稳定客户身份",
+      "privacy": "本地保留 外部排除"
+    },
+    {
+      "table": "orders",
+      "field": "order_status",
+      "meaning": "订单状态，保留全部状态用于规模描述",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "orders",
+      "field": "order_purchase_timestamp",
+      "meaning": "下单时间，按原始记录解释，不转换时区",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "orders",
+      "field": "order_approved_at",
+      "meaning": "支付批准时间，允许业务性缺失",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "orders",
+      "field": "order_delivered_carrier_date",
+      "meaning": "交承运商时间",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "orders",
+      "field": "order_delivered_customer_date",
+      "meaning": "实际送达时间，配送时长需非空",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "orders",
+      "field": "order_estimated_delivery_date",
+      "meaning": "预计送达日期，延迟按日历日判断",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "customers",
+      "field": "customer_id",
+      "meaning": "订单对应客户标识，不能作为稳定客户身份",
+      "privacy": "本地保留 外部排除"
+    },
+    {
+      "table": "customers",
+      "field": "customer_unique_id",
+      "meaning": "稳定客户标识，用于本地回购队列",
+      "privacy": "本地保留 外部排除"
+    },
+    {
+      "table": "customers",
+      "field": "customer_zip_code_prefix",
+      "meaning": "客户邮编前缀，分析不用",
+      "privacy": "本地保留 外部排除"
+    },
+    {
+      "table": "customers",
+      "field": "customer_city",
+      "meaning": "客户城市，分析不用",
+      "privacy": "本地保留 外部排除"
+    },
+    {
+      "table": "customers",
+      "field": "customer_state",
+      "meaning": "客户州，两位代码",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "order_items",
+      "field": "order_id",
+      "meaning": "订单标识，仅本地关联，不对外展示",
+      "privacy": "本地保留 外部排除"
+    },
+    {
+      "table": "order_items",
+      "field": "order_item_id",
+      "meaning": "订单内商品行序号，与订单标识构成复合键",
+      "privacy": "本地保留 外部排除"
+    },
+    {
+      "table": "order_items",
+      "field": "product_id",
+      "meaning": "商品标识",
+      "privacy": "本地保留 外部排除"
+    },
+    {
+      "table": "order_items",
+      "field": "seller_id",
+      "meaning": "卖家标识",
+      "privacy": "本地保留 外部排除"
+    },
+    {
+      "table": "order_items",
+      "field": "shipping_limit_date",
+      "meaning": "商品行发货期限",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "order_items",
+      "field": "price",
+      "meaning": "商品行金额 BRL，不含运费",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "order_items",
+      "field": "freight_value",
+      "meaning": "商品行运费 BRL",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "products",
+      "field": "product_id",
+      "meaning": "商品标识",
+      "privacy": "本地保留 外部排除"
+    },
+    {
+      "table": "products",
+      "field": "product_category_name",
+      "meaning": "葡语品类，缺失归为未分类",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "products",
+      "field": "product_name_length",
+      "meaning": "产品名称字符数，不用于核心业务指标",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "products",
+      "field": "product_description_length",
+      "meaning": "产品描述字符数，不是描述正文",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "products",
+      "field": "product_photos_qty",
+      "meaning": "商品图片数量 / 张",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "products",
+      "field": "product_weight_g",
+      "meaning": "商品重量 / 克",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "products",
+      "field": "product_length_cm",
+      "meaning": "商品长度 / 厘米",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "products",
+      "field": "product_height_cm",
+      "meaning": "商品高度 / 厘米",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "products",
+      "field": "product_width_cm",
+      "meaning": "商品宽度 / 厘米",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "payments",
+      "field": "order_id",
+      "meaning": "订单标识，仅本地关联，不对外展示",
+      "privacy": "本地保留 外部排除"
+    },
+    {
+      "table": "payments",
+      "field": "payment_sequential",
+      "meaning": "订单内支付序号",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "payments",
+      "field": "payment_type",
+      "meaning": "支付方式",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "payments",
+      "field": "payment_installments",
+      "meaning": "分期期数",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "payments",
+      "field": "payment_value",
+      "meaning": "支付金额 BRL，可能包含运费",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "reviews",
+      "field": "review_id",
+      "meaning": "评价标识，可能跨订单复用，不能单独作唯一键",
+      "privacy": "本地保留 外部排除"
+    },
+    {
+      "table": "reviews",
+      "field": "order_id",
+      "meaning": "订单标识，仅本地关联，不对外展示",
+      "privacy": "本地保留 外部排除"
+    },
+    {
+      "table": "reviews",
+      "field": "review_score",
+      "meaning": "原始星级 1至5，同单先平均",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "reviews",
+      "field": "review_comment_title",
+      "meaning": "评价标题，不用于分析及外部交付",
+      "privacy": "本地保留 外部排除"
+    },
+    {
+      "table": "reviews",
+      "field": "review_comment_message",
+      "meaning": "评价正文，不用于分析及外部交付",
+      "privacy": "本地保留 外部排除"
+    },
+    {
+      "table": "reviews",
+      "field": "review_creation_date",
+      "meaning": "评价创建时间",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "reviews",
+      "field": "review_answer_timestamp",
+      "meaning": "评价回应时间",
+      "privacy": "允许汇总使用"
+    },
+    {
+      "table": "sellers",
+      "field": "seller_id",
+      "meaning": "卖家标识",
+      "privacy": "本地保留 外部排除"
+    },
+    {
+      "table": "sellers",
+      "field": "seller_zip_code_prefix",
+      "meaning": "卖家邮编前缀，分析不用",
+      "privacy": "本地保留 外部排除"
+    },
+    {
+      "table": "sellers",
+      "field": "seller_city",
+      "meaning": "卖家城市，分析不用",
+      "privacy": "本地保留 外部排除"
+    },
+    {
+      "table": "sellers",
+      "field": "seller_state",
+      "meaning": "卖家州，两位代码",
+      "privacy": "允许汇总使用"
+    }
+  ]
+}

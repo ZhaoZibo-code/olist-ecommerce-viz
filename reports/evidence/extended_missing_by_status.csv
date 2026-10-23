@@ -1,0 +1,9 @@
+﻿status,n,approved_missing,carrier_missing,delivery_missing,item_missing,rating_missing
+approved,2,0,2,2,0,0
+canceled,625,141,550,619,164,20
+created,5,5,5,5,5,2
+delivered,96478,14,2,8,0,646
+invoiced,314,0,314,314,2,5
+processing,301,0,301,301,0,6
+shipped,1107,0,0,1107,1,75
+unavailable,609,0,609,609,603,14

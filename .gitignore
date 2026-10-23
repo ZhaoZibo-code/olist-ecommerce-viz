@@ -13,3 +13,5 @@ reports/.qa/
 !.env.example
 *.pem
 *.key
+*.log
+.ppt-build/

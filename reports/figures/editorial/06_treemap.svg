@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="641.998546pt" height="440.39952pt" viewBox="0 0 641.998546 440.39952" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-22T18:05:55.826461</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 440.39952 
+L 641.998546 440.39952 
+L 641.998546 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 7.2 425.725844 
+L 200.950612 425.725844 
+L 200.950612 333.480844 
+L 7.2 333.480844 
+z
+" clip-path="url(#pe840256123)" style="fill: #28648a; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 7.2 333.480844 
+L 200.950612 333.480844 
+L 200.950612 268.565052 
+L 7.2 268.565052 
+z
+" clip-path="url(#pe840256123)" style="fill: #28648a; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 7.2 268.565052 
+L 200.950612 268.565052 
+L 200.950612 212.323573 
+L 7.2 212.323573 
+z
+" clip-path="url(#pe840256123)" style="fill: #28648a; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 7.2 212.323573 
+L 200.950612 212.323573 
+L 200.950612 169.157738 
+L 7.2 169.157738 
+z
+" clip-path="url(#pe840256123)" style="fill: #28648a; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 7.2 169.157738 
+L 200.950612 169.157738 
+L 200.950612 52.042055 
+L 7.2 52.042055 
+z
+" clip-path="url(#pe840256123)" style="fill: #28648a; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 200.950612 425.725844 
+L 377.741042 425.725844 
+L 377.741042 303.018955 
+L 200.950612 303.018955 
+z
+" clip-path="url(#pe840256123)" style="fill: #4b84aa; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 200.950612 303.018955 
+L 377.741042 303.018955 
+L 377.741042 185.544822 
+L 200.950612 185.544822 
+z
+" clip-path="url(#pe840256123)" style="fill: #4b84aa; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 200.950612 185.544822 
+L 290.723717 185.544822 
+L 290.723717 106.492439 
+L 200.950612 106.492439 
+z
+" clip-path="url(#pe840256123)" style="fill: #4b84aa; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 290.723717 185.544822 
+L 377.741042 185.544822 
+L 377.741042 106.492439 
+L 290.723717 106.492439 
+z
+" clip-path="url(#pe840256123)" style="fill: #4b84aa; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 200.950612 106.492439 
+L 377.741042 106.492439 
+L 377.741042 52.042055 
+L 200.950612 52.042055 
+z
+" clip-path="url(#pe840256123)" style="fill: #4b84aa; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 377.741042 425.725844 
+L 470.773479 425.725844 
+L 470.773479 242.681643 
+L 377.741042 242.681643 
+z
+" clip-path="url(#pe840256123)" style="fill: #77a7c6; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 377.741042 242.681643 
+L 470.773479 242.681643 
+L 470.773479 153.026554 
+L 377.741042 153.026554 
+z
+" clip-path="url(#pe840256123)" style="fill: #77a7c6; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 377.741042 153.026554 
+L 470.773479 153.026554 
+L 470.773479 110.24242 
+L 377.741042 110.24242 
+z
+" clip-path="url(#pe840256123)" style="fill: #77a7c6; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 377.741042 110.24242 
+L 470.773479 110.24242 
+L 470.773479 74.765677 
+L 377.741042 74.765677 
+z
+" clip-path="url(#pe840256123)" style="fill: #77a7c6; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 377.741042 74.765677 
+L 470.773479 74.765677 
+L 470.773479 52.042055 
+L 377.741042 52.042055 
+z
+" clip-path="url(#pe840256123)" style="fill: #77a7c6; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_17">
+    <path d="M 470.773479 425.725844 
+L 558.524003 425.725844 
+L 558.524003 246.609478 
+L 470.773479 246.609478 
+z
+" clip-path="url(#pe840256123)" style="fill: #9ec4da; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_18">
+    <path d="M 470.773479 246.609478 
+L 558.524003 246.609478 
+L 558.524003 183.038145 
+L 470.773479 183.038145 
+z
+" clip-path="url(#pe840256123)" style="fill: #9ec4da; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_19">
+    <path d="M 470.773479 183.038145 
+L 558.524003 183.038145 
+L 558.524003 139.246099 
+L 470.773479 139.246099 
+z
+" clip-path="url(#pe840256123)" style="fill: #9ec4da; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_20">
+    <path d="M 470.773479 139.246099 
+L 558.524003 139.246099 
+L 558.524003 107.772139 
+L 470.773479 107.772139 
+z
+" clip-path="url(#pe840256123)" style="fill: #9ec4da; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_21">
+    <path d="M 470.773479 107.772139 
+L 558.524003 107.772139 
+L 558.524003 52.042055 
+L 470.773479 52.042055 
+z
+" clip-path="url(#pe840256123)" style="fill: #9ec4da; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_22">
+    <path d="M 558.524003 425.725844 
+L 634.073089 425.725844 
+L 634.073089 280.796847 
+L 558.524003 280.796847 
+z
+" clip-path="url(#pe840256123)" style="fill: #c8e0ed; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_23">
+    <path d="M 558.524003 280.796847 
+L 634.073089 280.796847 
+L 634.073089 145.579518 
+L 558.524003 145.579518 
+z
+" clip-path="url(#pe840256123)" style="fill: #c8e0ed; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_24">
+    <path d="M 558.524003 145.579518 
+L 634.073089 145.579518 
+L 634.073089 104.622108 
+L 558.524003 104.622108 
+z
+" clip-path="url(#pe840256123)" style="fill: #c8e0ed; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_25">
+    <path d="M 558.524003 104.622108 
+L 634.073089 104.622108 
+L 634.073089 88.075721 
+L 558.524003 88.075721 
+z
+" clip-path="url(#pe840256123)" style="fill: #c8e0ed; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_26">
+    <path d="M 558.524003 88.075721 
+L 634.073089 88.075721 
+L 634.073089 52.042055 
+L 558.524003 52.042055 
+z
+" clip-path="url(#pe840256123)" style="fill: #c8e0ed; stroke: #ffffff; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; fill: #ffffff" transform="translate(81.075306 375.097792)">床品卫浴</text>
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; fill: #ffffff" transform="translate(92.098236 392.227177)">7.6%</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; fill: #ffffff" transform="translate(81.075306 296.304467)">家具装饰</text>
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; fill: #ffffff" transform="translate(92.098236 313.646781)">5.4%</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; fill: #ffffff" transform="translate(81.075306 235.93337)">家居用品</text>
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; fill: #ffffff" transform="translate(92.098236 253.068145)">4.7%</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; fill: #ffffff" transform="translate(81.075306 185.935924)">园艺工具</text>
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; fill: #ffffff" transform="translate(92.098236 203.364488)">3.6%</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; fill: #ffffff" transform="translate(81.075306 105.846376)">其余品类</text>
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; fill: #ffffff" transform="translate(92.098236 123.223729)">9.7%</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 11px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; text-anchor: middle; fill: #28648a" x="104.075306" y="37.094703" transform="rotate(-0 104.075306 37.094703)">家居与建材</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; fill: #ffffff" transform="translate(266.345827 359.791379)">美妆健康</text>
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; fill: #ffffff" transform="translate(277.368757 376.996233)">9.3%</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; fill: #ffffff" transform="translate(266.345827 239.724228)">手表礼品</text>
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; fill: #ffffff" transform="translate(277.368757 256.905722)">8.9%</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 10.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; fill: #ffffff" transform="translate(219.587165 141.710452)">婴幼儿用品</text>
+    <text style="font-size: 10.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; fill: #ffffff" transform="translate(234.901579 157.544739)">3.0%</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 10.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; fill: #ffffff" transform="translate(323.732379 141.883538)">香水</text>
+    <text style="font-size: 10.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; fill: #ffffff" transform="translate(323.296794 157.544739)">2.9%</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; fill: #ffffff" transform="translate(266.345827 74.513726)">其余品类</text>
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; fill: #ffffff" transform="translate(277.368757 91.89108)">4.1%</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 11px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; text-anchor: middle; fill: #28648a" x="289.345827" y="37.094703" transform="rotate(-0 289.345827 37.094703)">生活与个护</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 10.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'" transform="translate(403.25726 330.074393)">运动休闲</text>
+    <text style="font-size: 10.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'" transform="translate(413.321674 345.729852)">7.3%</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 10.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'" transform="translate(413.75726 193.372834)">玩具</text>
+    <text style="font-size: 10.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'" transform="translate(413.321674 209.380207)">3.6%</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 11px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; text-anchor: middle; fill: #28648a" x="424.25726" y="37.094703" transform="rotate(-0 424.25726 37.094703)">文娱与运动</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 10.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'" transform="translate(493.648741 332.053076)">电脑配件</text>
+    <text style="font-size: 10.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'" transform="translate(503.713155 347.69377)">6.7%</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 10.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'" transform="translate(493.648741 210.720711)">移动通信</text>
+    <text style="font-size: 10.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'" transform="translate(503.713155 226.34992)">2.4%</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 10.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'" transform="translate(493.648741 75.566926)">其余品类</text>
+    <text style="font-size: 10.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'" transform="translate(503.713155 91.433205)">2.1%</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 11px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; text-anchor: middle; fill: #28648a" x="514.648741" y="37.094703" transform="rotate(-0 514.648741 37.094703)">数码与通信</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 10.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'" transform="translate(575.298546 349.194339)">创意好物</text>
+    <text style="font-size: 10.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'" transform="translate(585.36296 364.787454)">4.7%</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 10.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'" transform="translate(575.298546 209.011254)">汽车用品</text>
+    <text style="font-size: 10.5px; font-family: 'Times New Roman', 'Noto Serif CJK SC'" transform="translate(585.36296 224.714291)">4.4%</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 11px; font-family: 'Times New Roman', 'Noto Serif CJK SC'; text-anchor: middle; fill: #28648a" x="596.298546" y="37.094703" transform="rotate(-0 596.298546 37.094703)">其他消费与工贸</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pe840256123">
+   <rect x="7.2" y="7.2" width="626.873089" height="425.99952"/>
+  </clipPath>
+ </defs>
+</svg>
