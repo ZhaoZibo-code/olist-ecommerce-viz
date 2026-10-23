@@ -1,0 +1,5 @@
+python-docx>=1.1,<2
+pypdf>=5,<7
+lxml>=5
+Pillow>=10
+# 自动PDF另需可选渲染环境；详见同目录README的PDF导出说明。
